@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"/>
+
+    <item
+        android:id="@+id/financialFragment"
+        android:icon="@drawable/ic_financial"
+        android:title="@string/financial"/>
+
+    <item
+        android:id="@+id/todoFragment"
+        android:icon="@drawable/ic_todo"
+        android:title="@string/todo"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"/>
+
+</menu>

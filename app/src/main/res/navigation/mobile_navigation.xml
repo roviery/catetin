@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.roviery.catetin.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_deadlineDialogFragment"
+            app:destination="@id/deadlineDialogFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_deleteDialogFragment"
+            app:destination="@id/deleteDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/financialFragment"
+        android:name="com.roviery.catetin.FinancialFragment"
+        android:label="fragment_financial"
+        tools:layout="@layout/fragment_financial" />
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.roviery.catetin.TodoFragment"
+        android:label="fragment_todo"
+        tools:layout="@layout/fragment_todo" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.roviery.catetin.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/deadlineDialogFragment"
+        android:name="com.roviery.catetin.home.deadline.DeadlineDialogFragment"
+        android:label="fragment_deadline_dialog"
+        tools:layout="@layout/fragment_deadline_dialog" />
+    <dialog
+        android:id="@+id/deleteDialogFragment"
+        android:name="com.roviery.catetin.home.deadline.DeleteDialogFragment"
+        android:label="fragment_delete_dialog"
+        tools:layout="@layout/fragment_delete_dialog" >
+        <argument
+            android:name="deadline"
+            app:argType="com.roviery.core.domain.model.Deadline" />
+    </dialog>
+</navigation>

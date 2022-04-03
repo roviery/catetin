@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Catetin</string>
+
+    <string name="home">Home</string>
+    <string name="financial">Financial</string>
+    <string name="todo">To Do</string>
+    <string name="profile">Profile</string>
+
+    <!--  sub section  -->
+    <string name="deadline">Deadline</string>
+    <string name="quick_notes">Quick Notes</string>
+    <!--  empty value  -->
+    <string name="empty_deadline">Hooray! you have no deadline</string>
+    <!--  content description  -->
+    <string name="insert_deadline">Insert Deadline</string>
+    <string name="close_deadline_dialog">Back to Home Page</string>
+
+    <string name="set_date">Set Date</string>
+    <string name="date_example">Jumat, 16 April 2022</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="simpan">Simpan</string>
+
+</resources>
