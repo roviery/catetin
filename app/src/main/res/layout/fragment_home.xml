@@ -52,11 +52,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_rv_deadline"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="186dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="@id/home_tv_deadline"
+        app:layout_constraintEnd_toEndOf="@id/home_ib_deadline"
         app:layout_constraintTop_toBottomOf="@id/home_tv_deadline"
         tools:listitem="@layout/deadline_card" />
 
