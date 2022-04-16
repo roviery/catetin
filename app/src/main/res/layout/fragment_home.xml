@@ -87,4 +87,17 @@
         app:layout_constraintStart_toStartOf="@id/home_tv_deadline"
         app:layout_constraintTop_toBottomOf="@id/home_rv_deadline" />
 
+    <ImageButton
+        android:id="@+id/home_ib_quicknotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/insert_deadline"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@id/home_tv_quicknotes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_tv_quicknotes"
+        app:tint="@color/black" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

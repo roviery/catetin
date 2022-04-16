@@ -41,6 +41,11 @@ class HomeFragment : Fragment() {
                 showDeadlineDialog()
             }
 
+            binding?.homeIbQuicknotes?.setOnClickListener{
+                showQuicknotesDialog()
+            }
+
+
             deadlineAdapter.onItemClick = {
             }
 
@@ -79,6 +84,10 @@ class HomeFragment : Fragment() {
     private fun showDeleteDialog(deadline: Deadline) {
         val toDeleteDialogFragment = HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(deadline)
         findNavController().navigate(toDeleteDialogFragment)
+    }
+
+    private fun showQuicknotesDialog() {
+        findNavController().navigate(R.id.action_homeFragment_to_quicknotesDialogFragment)
     }
 
 }

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_deleteDialogFragment"
             app:destination="@id/deleteDialogFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_quicknotesDialogFragment"
+            app:destination="@id/quicknotesDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/financialFragment"
@@ -46,4 +49,9 @@
             android:name="deadline"
             app:argType="com.roviery.core.domain.model.Deadline" />
     </dialog>
+    <dialog
+        android:id="@+id/quicknotesDialogFragment"
+        android:name="com.roviery.catetin.home.quicknotes.QuicknotesDialogFragment"
+        android:label="fragment_quicknotes_dialog"
+        tools:layout="@layout/fragment_quicknotes_dialog" />
 </navigation>
