@@ -1,4 +1,4 @@
-package com.roviery.catetin.home.deadline
+package com.roviery.catetin.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.roviery.catetin.databinding.FragmentDeleteDialogBinding
-import com.roviery.catetin.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DeleteDialogFragment() : DialogFragment() {
@@ -29,16 +28,21 @@ class DeleteDialogFragment() : DialogFragment() {
 
         if (activity != null) {
             val deadline = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).deadline
+            val quicknotes = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).quicknotes
             binding?.dialogBtnNo?.setOnClickListener {
                 findNavController().navigateUp()
             }
 
             binding?.dialogBtnYes?.setOnClickListener {
-                homeViewModel.deleteDeadline(deadline)
-                findNavController().navigateUp()
+                if (deadline != null){
+                    homeViewModel.deleteDeadline(deadline)
+                    findNavController().navigateUp()
+                }else if (quicknotes != null){
+                    homeViewModel.deleteQuicknotes(quicknotes)
+                    findNavController().navigateUp()
+                }
             }
         }
-
     }
 
     override fun onStart() {

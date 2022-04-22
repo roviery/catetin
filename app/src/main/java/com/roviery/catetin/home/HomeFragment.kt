@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
             }
 
             binding?.homeIbQuicknotes?.setOnClickListener {
-                showQuicknotesDialog()
+                findNavController().navigate(R.id.action_homeFragment_to_quicknotesDialogFragment)
             }
 
             deadlineAdapter.onItemClick = {
@@ -55,7 +55,19 @@ class HomeFragment : Fragment() {
 
             deadlineAdapter.onItemLongClick = {
                 val toDeleteDialogFragment =
-                    HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(it)
+                    HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(deadline = it)
+                findNavController().navigate(toDeleteDialogFragment)
+            }
+
+            quicknotesAdapter.onItemClick = {
+                val toQuicknotesDialog =
+                    HomeFragmentDirections.actionHomeFragmentToQuicknotesDialogFragment(it)
+                findNavController().navigate(toQuicknotesDialog)
+            }
+
+            quicknotesAdapter.onItemLongClick = {
+                val toDeleteDialogFragment =
+                    HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(quicknotes = it)
                 findNavController().navigate(toDeleteDialogFragment)
             }
         }
@@ -80,10 +92,17 @@ class HomeFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = deadlineAdapter
         }
-    }
 
-    private fun showQuicknotesDialog() {
-        findNavController().navigate(R.id.action_homeFragment_to_quicknotesDialogFragment)
+        homeViewModel.listQuicknotes.observe(viewLifecycleOwner) { quicknotes ->
+            Log.d("Quicknotes List", quicknotes.toString())
+            quicknotesAdapter.setData(quicknotes)
+        }
+
+        with(binding?.homeRvQuicknotes){
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = quicknotesAdapter
+        }
     }
 
 }

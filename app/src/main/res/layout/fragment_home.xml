@@ -100,4 +100,16 @@
         app:layout_constraintTop_toTopOf="@id/home_tv_quicknotes"
         app:tint="@color/black" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_rv_quicknotes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_tv_quicknotes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/quicknotes_card" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

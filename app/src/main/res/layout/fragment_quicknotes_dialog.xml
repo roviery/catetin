@@ -7,15 +7,72 @@
     tools:context=".home.quicknotes.QuicknotesDialogFragment">
 
     <TextView
+        android:id="@+id/dialog_tv_quicknotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/quicksand_bold"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center_vertical"
         android:text="@string/quick_notes"
         android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/dialog_ib_close_quicknotes" />
+
+    <ImageButton
+        android:id="@+id/dialog_ib_close_quicknotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/close_deadline_dialog"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/dialog_tv_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/notes"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/dialog_tv_quicknotes"
+        app:layout_constraintTop_toBottomOf="@id/dialog_tv_quicknotes" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_ti_notes"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/notes"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:layout_constraintEnd_toEndOf="@id/dialog_ib_close_quicknotes"
+        app:layout_constraintStart_toStartOf="@id/dialog_tv_quicknotes"
+        app:layout_constraintTop_toBottomOf="@id/dialog_tv_notes">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_et_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:lines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/dialog_btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/dialog_ti_notes"
+        app:layout_constraintEnd_toEndOf="@id/dialog_ib_close_quicknotes"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

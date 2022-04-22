@@ -48,16 +48,29 @@
     </dialog>
     <dialog
         android:id="@+id/deleteDialogFragment"
-        android:name="com.roviery.catetin.home.deadline.DeleteDialogFragment"
+        android:name="com.roviery.catetin.home.DeleteDialogFragment"
         android:label="fragment_delete_dialog"
         tools:layout="@layout/fragment_delete_dialog" >
         <argument
             android:name="deadline"
-            app:argType="com.roviery.core.domain.model.Deadline" />
+            app:argType="com.roviery.core.domain.model.Deadline"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="quicknotes"
+            app:argType="com.roviery.core.domain.model.Quicknotes"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </dialog>
     <dialog
         android:id="@+id/quicknotesDialogFragment"
         android:name="com.roviery.catetin.home.quicknotes.QuicknotesDialogFragment"
         android:label="fragment_quicknotes_dialog"
-        tools:layout="@layout/fragment_quicknotes_dialog" />
+        tools:layout="@layout/fragment_quicknotes_dialog" >
+        <argument
+            android:name="quicknotes"
+            app:argType="com.roviery.core.domain.model.Quicknotes"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
 </navigation>

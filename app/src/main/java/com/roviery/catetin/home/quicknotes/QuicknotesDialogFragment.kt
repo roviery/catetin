@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.roviery.catetin.databinding.FragmentQuicknotesDialogBinding
 import com.roviery.catetin.home.HomeViewModel
+import com.roviery.core.domain.model.Quicknotes
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuicknotesDialogFragment : DialogFragment() {
@@ -29,7 +31,33 @@ class QuicknotesDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
+            val quicknotes = QuicknotesDialogFragmentArgs.fromBundle(arguments as Bundle).quicknotes
 
+            if (quicknotes != null){
+                binding?.dialogEtNotes?.setText(quicknotes.quicknotesText)
+            }
+
+            binding?.dialogIbCloseQuicknotes?.setOnClickListener {
+                findNavController().navigateUp()
+            }
+
+            binding?.dialogBtnSave?.setOnClickListener {
+                if (quicknotes != null){
+                    homeViewModel.updateQuicknotes(
+                        quicknotes,
+                        binding?.dialogEtNotes?.text.toString(),
+                    )
+                    findNavController().navigateUp()
+                }
+                else {
+                    val newQuicknotes = Quicknotes(
+                        0,
+                        binding?.dialogEtNotes?.text.toString()
+                    )
+                    homeViewModel.insertQuicknotes(newQuicknotes)
+                    findNavController().navigateUp()
+                }
+            }
         }
     }
 
@@ -41,6 +69,6 @@ class QuicknotesDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 850)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 750)
     }
 }
