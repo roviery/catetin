@@ -1,6 +1,7 @@
 package com.roviery.core.data.source.local
 
 import com.roviery.core.data.source.local.entity.DeadlineEntity
+import com.roviery.core.data.source.local.entity.QuicknotesEntity
 import com.roviery.core.data.source.local.room.CatetinDao
 import kotlinx.coroutines.flow.Flow
 
@@ -19,5 +20,16 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
     }
 
     fun deleteDeadline(deadline: DeadlineEntity) = catetinDao.deleteDeadline(deadline)
+
+    // Quicknotes
+
+    fun getAllQuicknotes(): Flow<List<QuicknotesEntity>> = catetinDao.getAllQuicknotes()
+
+    fun insertQuicknotes(quicknotes: QuicknotesEntity) = catetinDao.insertQuicknotes(quicknotes)
+
+    fun updateQuicknotes(quicknotes: QuicknotesEntity, newText: String){
+        quicknotes.quicknotesText = newText
+        catetinDao.updateQuicknotes(quicknotes)
+    }
 
 }
