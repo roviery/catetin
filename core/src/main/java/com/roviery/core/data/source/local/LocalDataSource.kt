@@ -32,4 +32,6 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
         catetinDao.updateQuicknotes(quicknotes)
     }
 
+    fun deleteQuicknotes(quicknotes: QuicknotesEntity) = catetinDao.deleteQuicknotes(quicknotes)
+
 }
