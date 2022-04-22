@@ -38,7 +38,8 @@ class HomeFragment : Fragment() {
             deadlineAdapter = DeadlineAdapter()
 
             binding?.homeIbDeadline?.setOnClickListener {
-                showDeadlineDialog()
+                val toDeadlineDialog = HomeFragmentDirections.actionHomeFragmentToDeadlineDialogFragment()
+                findNavController().navigate(toDeadlineDialog)
             }
 
             binding?.homeIbQuicknotes?.setOnClickListener{
@@ -47,10 +48,13 @@ class HomeFragment : Fragment() {
 
 
             deadlineAdapter.onItemClick = {
+                val toDeadlineDialog = HomeFragmentDirections.actionHomeFragmentToDeadlineDialogFragment(it)
+                findNavController().navigate(toDeadlineDialog)
             }
 
             deadlineAdapter.onItemLongClick = {
-                showDeleteDialog(it)
+                val toDeleteDialogFragment = HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(it)
+                findNavController().navigate(toDeleteDialogFragment)
             }
         }
 
@@ -75,15 +79,6 @@ class HomeFragment : Fragment() {
             this?.setHasFixedSize(true)
             this?.adapter = deadlineAdapter
         }
-    }
-
-    private fun showDeadlineDialog() {
-        findNavController().navigate(R.id.action_homeFragment_to_deadlineDialogFragment)
-    }
-
-    private fun showDeleteDialog(deadline: Deadline) {
-        val toDeleteDialogFragment = HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(deadline)
-        findNavController().navigate(toDeleteDialogFragment)
     }
 
     private fun showQuicknotesDialog() {

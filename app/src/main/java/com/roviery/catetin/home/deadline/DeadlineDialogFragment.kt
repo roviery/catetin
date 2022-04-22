@@ -43,7 +43,14 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (activity != null){
+        if (activity != null) {
+            val deadline = DeadlineDialogFragmentArgs.fromBundle(arguments as Bundle).deadline
+
+            if (deadline != null) {
+                binding?.dialogTvDate?.text = deadline.deadlineDate
+                binding?.dialogEtKeterangan?.setText(deadline.deadlineNotes)
+            }
+
             getDateCalendar()
             binding?.dialogTvDate?.text = "$savedDay, $savedDayOfMonth $savedMonthString $savedYear"
 
@@ -57,13 +64,21 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                val deadline = Deadline(
-                    0,
-                    binding?.dialogTvDate?.text.toString(),
-                    binding?.dialogEtKeterangan?.text.toString()
-                )
-                homeViewModel.insertDeadline(deadline)
-                dialog?.dismiss()
+                if (deadline != null) {
+                    homeViewModel.updateDeadline(
+                        deadline, binding?.dialogTvDate?.text.toString(),
+                        binding?.dialogEtKeterangan?.text.toString()
+                    )
+                    dialog?.dismiss()
+                } else {
+                    val newDeadline = Deadline(
+                        0,
+                        binding?.dialogTvDate?.text.toString(),
+                        binding?.dialogEtKeterangan?.text.toString()
+                    )
+                    homeViewModel.insertDeadline(newDeadline)
+                    dialog?.dismiss()
+                }
             }
         }
     }
@@ -81,14 +96,14 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val simpleDateFormat = SimpleDateFormat("EEEE")
-        val date = Date(year, month, dayOfMonth-1)
+        val date = Date(year, month, dayOfMonth - 1)
 
         savedDay = simpleDateFormat.format(date)
         savedDayOfMonth = dayOfMonth
         savedMonth = month
         savedYear = year
 
-        when(savedMonth){
+        when (savedMonth) {
             0 -> savedMonthString = "January"
             1 -> savedMonthString = "February"
             2 -> savedMonthString = "March"
@@ -106,20 +121,20 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
         binding?.dialogTvDate?.text = "$savedDay, $savedDayOfMonth $savedMonthString $savedYear"
     }
 
-    private fun getDateCalendar(){
+    private fun getDateCalendar() {
         val cal = Calendar.getInstance()
         dayOfMonth = cal.get(Calendar.DAY_OF_MONTH)
         month = cal.get(Calendar.MONTH)
         year = cal.get(Calendar.YEAR)
 
         val simpleDateFormat = SimpleDateFormat("EEEE")
-        val date = Date(year, month, dayOfMonth-1)
+        val date = Date(year, month, dayOfMonth - 1)
         savedDay = simpleDateFormat.format(date)
         savedDayOfMonth = dayOfMonth
         savedMonth = month
         savedYear = year
 
-        when(savedMonth){
+        when (savedMonth) {
             0 -> savedMonthString = "January"
             1 -> savedMonthString = "February"
             2 -> savedMonthString = "March"

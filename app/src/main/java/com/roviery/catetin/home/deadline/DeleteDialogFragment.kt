@@ -29,11 +29,11 @@ class DeleteDialogFragment() : DialogFragment() {
 
         if (activity != null) {
             val deadline = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).deadline
-            binding?.dialogBtnArchive?.setOnClickListener {
-
+            binding?.dialogBtnNo?.setOnClickListener {
+                findNavController().navigateUp()
             }
 
-            binding?.dialogBtnDelete?.setOnClickListener {
+            binding?.dialogBtnYes?.setOnClickListener {
                 homeViewModel.deleteDeadline(deadline)
                 findNavController().navigateUp()
             }

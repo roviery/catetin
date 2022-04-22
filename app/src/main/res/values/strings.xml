@@ -17,7 +17,10 @@
 
     <string name="set_date">Set Date</string>
     <string name="date_example">Jumat, 16 April 2022</string>
-    <string name="keterangan">Keterangan</string>
-    <string name="simpan">Simpan</string>
+    <string name="notes">Notes</string>
+    <string name="save">Save</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="delete_confirmation">Are you sure want to delete this item?</string>
 
 </resources>
