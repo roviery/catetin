@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.roviery.catetin.R
 import com.roviery.catetin.databinding.FragmentHomeBinding
-import com.roviery.core.domain.model.Deadline
 import com.roviery.core.ui.DeadlineAdapter
+import com.roviery.core.ui.QuicknotesAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var deadlineAdapter: DeadlineAdapter
+    private lateinit var quicknotesAdapter: QuicknotesAdapter
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
@@ -36,24 +37,25 @@ class HomeFragment : Fragment() {
 
         if (activity != null) {
             deadlineAdapter = DeadlineAdapter()
+            quicknotesAdapter = QuicknotesAdapter()
 
             binding?.homeIbDeadline?.setOnClickListener {
-                val toDeadlineDialog = HomeFragmentDirections.actionHomeFragmentToDeadlineDialogFragment()
-                findNavController().navigate(toDeadlineDialog)
+                findNavController().navigate(R.id.action_homeFragment_to_deadlineDialogFragment)
             }
 
-            binding?.homeIbQuicknotes?.setOnClickListener{
+            binding?.homeIbQuicknotes?.setOnClickListener {
                 showQuicknotesDialog()
             }
 
-
             deadlineAdapter.onItemClick = {
-                val toDeadlineDialog = HomeFragmentDirections.actionHomeFragmentToDeadlineDialogFragment(it)
+                val toDeadlineDialog =
+                    HomeFragmentDirections.actionHomeFragmentToDeadlineDialogFragment(it)
                 findNavController().navigate(toDeadlineDialog)
             }
 
             deadlineAdapter.onItemLongClick = {
-                val toDeleteDialogFragment = HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(it)
+                val toDeleteDialogFragment =
+                    HomeFragmentDirections.actionHomeFragmentToDeleteDialogFragment(it)
                 findNavController().navigate(toDeleteDialogFragment)
             }
         }
@@ -64,11 +66,10 @@ class HomeFragment : Fragment() {
     private fun loadDeadline() {
         homeViewModel.listDeadline.observe(viewLifecycleOwner) { deadline ->
             Log.d("Deadline List", deadline.toString())
-            if (deadline.isEmpty()){
+            if (deadline.isEmpty()) {
                 binding?.homeTvEmptyDeadline?.visibility = View.VISIBLE
                 deadlineAdapter.setData(deadline)
-            }
-            else {
+            } else {
                 binding?.homeTvEmptyDeadline?.visibility = View.GONE
                 deadlineAdapter.setData(deadline)
             }

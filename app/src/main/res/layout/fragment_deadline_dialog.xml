@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".home.deadline.DeadlineDialogFragment">
 
+    <TextView
+        android:id="@+id/dialog_tv_deadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center_vertical"
+        android:text="@string/deadline"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dialog_ib_close_deadline" />
+
+
     <ImageButton
         android:id="@+id/dialog_ib_close_deadline"
         android:layout_width="wrap_content"
