@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.roviery.catetin.R
 import com.roviery.catetin.databinding.FragmentHomeBinding
 import com.roviery.core.ui.DeadlineAdapter
 import com.roviery.core.ui.QuicknotesAdapter
+import com.roviery.core.utils.SwipeGesture
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -38,6 +40,23 @@ class HomeFragment : Fragment() {
         if (activity != null) {
             deadlineAdapter = DeadlineAdapter()
             quicknotesAdapter = QuicknotesAdapter()
+
+            val swipeGesture = object : SwipeGesture(requireActivity()){
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    when(direction){
+                        ItemTouchHelper.LEFT -> {
+                            homeViewModel.deleteQuicknotes(quicknotesAdapter.getData(viewHolder.adapterPosition))
+                        }
+
+                        ItemTouchHelper.RIGHT -> {
+                            homeViewModel.deleteQuicknotes(quicknotesAdapter.getData(viewHolder.adapterPosition))
+                        }
+                    }
+                }
+            }
+
+            val touchHelper = ItemTouchHelper(swipeGesture)
+            touchHelper.attachToRecyclerView(binding?.homeRvQuicknotes)
 
             binding?.homeIbDeadline?.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_deadlineDialogFragment)

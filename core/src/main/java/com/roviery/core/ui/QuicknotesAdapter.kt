@@ -21,6 +21,8 @@ class QuicknotesAdapter : RecyclerView.Adapter<QuicknotesAdapter.QuicknotesViewH
         notifyDataSetChanged()
     }
 
+    fun getData(position: Int): Quicknotes = listData[position]
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuicknotesViewHolder =
         QuicknotesViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.quicknotes_card, parent, false)
