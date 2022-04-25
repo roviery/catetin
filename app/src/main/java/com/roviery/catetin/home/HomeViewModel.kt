@@ -3,13 +3,16 @@ package com.roviery.catetin.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.roviery.core.domain.model.Deadline
+import com.roviery.core.domain.model.Finance
 import com.roviery.core.domain.model.Quicknotes
 import com.roviery.core.domain.usecase.DeadlineUseCase
+import com.roviery.core.domain.usecase.FinanceUseCase
 import com.roviery.core.domain.usecase.QuicknotesUseCase
 
 class HomeViewModel(
     private val deadlineUseCase: DeadlineUseCase,
-    private val quicknotesUseCase: QuicknotesUseCase
+    private val quicknotesUseCase: QuicknotesUseCase,
+    private val financeUseCase: FinanceUseCase
 ) : ViewModel() {
 
     // Deadline
@@ -25,6 +28,15 @@ class HomeViewModel(
     fun insertQuicknotes(quicknotes: Quicknotes) = quicknotesUseCase.insertQuicknotes(quicknotes)
     fun updateQuicknotes(quicknotes: Quicknotes, newText: String) =
         quicknotesUseCase.updateQuicknotes(quicknotes, newText)
+
     fun deleteQuicknotes(quicknotes: Quicknotes) = quicknotesUseCase.deleteQuicknotes(quicknotes)
+
+    // Finance
+    val listFinance = financeUseCase.getAllFinance().asLiveData()
+    fun insertFinance(finance: Finance) = financeUseCase.insertFinance(finance)
+    fun updateFinance(finance: Finance, newType: String, newFundAllocation: Int) =
+        financeUseCase.updateFinance(finance, newType, newFundAllocation)
+
+    fun deleteFinance(finance: Finance) = financeUseCase.deleteFinance(finance)
 
 }

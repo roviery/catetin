@@ -41,7 +41,8 @@ class FinanceAdapter : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() 
             with(binding) {
                 tvTitle.text = data.financeType
                 tvFundAllocation.text = "Rp${data.financeFundAllocation.toString()}"
-                tvUsedFund.text = "Rp${data.finan}"
+                tvUsedFund.text = "Rp${data.financeUsedFund.toString()}"
+                tvRemainingFund.text = "Rp${data.financeRemainingFund.toString()}"
             }
         }
 

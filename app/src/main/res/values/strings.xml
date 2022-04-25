@@ -25,5 +25,7 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="delete_confirmation">Are you sure want to delete this item?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
