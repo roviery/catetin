@@ -7,14 +7,18 @@ object DataMapperFinance {
     fun mapDomainToEntity(input: Finance) =
         FinanceEntity(
             financeType = input.financeType,
-            financeFundAllocation = input.financeFundAllocation
+            financeFundAllocation = input.financeFundAllocation,
+            financeUsedFund = input.financeUsedFund,
+            financeRemainingFund = input.financeRemainingFund
         )
 
     fun mapEntitiesToDomain(input: List<FinanceEntity>): List<Finance> =
         input.map {
             Finance(
                 financeType = it.financeType,
-                financeFundAllocation = it.financeFundAllocation
+                financeFundAllocation = it.financeFundAllocation,
+                financeUsedFund = it.financeUsedFund,
+                financeRemainingFund = it.financeRemainingFund
             )
         }
 }
