@@ -13,6 +13,9 @@
     <string name="empty_deadline">Hooray! you have no deadline</string>
     <!--  content description  -->
     <string name="insert_deadline">Insert Deadline</string>
+    <string name="insert_quicknotes">Insert Quicknotes</string>
+    <string name="insert_financial">Insert Financial</string>
+
     <string name="close_deadline_dialog">Back to Home Page</string>
 
     <string name="set_date">Set Date</string>
