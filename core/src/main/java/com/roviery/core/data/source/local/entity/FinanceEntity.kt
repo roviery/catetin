@@ -15,5 +15,14 @@ data class FinanceEntity(
 
     @NonNull
     @ColumnInfo(name = "FFundAllocation")
-    var financeFundAllocation: Int
+    var financeFundAllocation: Int,
+
+    @NonNull
+    @ColumnInfo(name = "FUsedFund")
+    var financeUsedFund: Int,
+
+    @NonNull
+    @ColumnInfo(name = "FRemainingFund")
+    var financeRemainingFund: Int
+
 )
