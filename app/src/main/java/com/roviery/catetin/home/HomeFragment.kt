@@ -92,11 +92,11 @@ class HomeFragment : Fragment() {
 
             // Financial Section
             binding?.homeIbFinancial?.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_financialDialogFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_financeDialogFragment)
             }
             financeAdapter.onItemClick = {
                 val toFinanceDialog =
-                    HomeFragmentDirections.actionHomeFragmentToFinancialDialogFragment(it)
+                    HomeFragmentDirections.actionHomeFragmentToFinanceDialogFragment(it)
                 findNavController().navigate(toFinanceDialog)
             }
             financeAdapter.onItemLongClick = {

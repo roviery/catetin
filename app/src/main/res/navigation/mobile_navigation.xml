@@ -20,8 +20,8 @@
             android:id="@+id/action_homeFragment_to_quicknotesDialogFragment"
             app:destination="@id/quicknotesDialogFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_financialDialogFragment"
-            app:destination="@id/financialDialogFragment" />
+            android:id="@+id/action_homeFragment_to_financeDialogFragment"
+            app:destination="@id/financeDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/financialFragment"
@@ -81,15 +81,14 @@
             app:nullable="true"
             android:defaultValue="@null" />
     </dialog>
-    <fragment
-        android:id="@+id/financialDialogFragment"
-        android:name="com.roviery.catetin.home.financial.FinancialDialogFragment"
-        android:label="fragment_financial_dialog"
-        tools:layout="@layout/fragment_financial_dialog" >
+    <dialog
+        android:id="@+id/financeDialogFragment"
+        android:name="com.roviery.catetin.home.financial.FinanceDialogFragment"
+        android:label="FinanceDialogFragment" >
         <argument
             android:name="finance"
             app:argType="com.roviery.core.domain.model.Finance"
             app:nullable="true"
             android:defaultValue="@null" />
-    </fragment>
+    </dialog>
 </navigation>
