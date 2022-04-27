@@ -29,16 +29,21 @@ class DeleteDialogFragment() : DialogFragment() {
         if (activity != null) {
             val deadline = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).deadline
             val quicknotes = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).quicknotes
+            val finance = DeleteDialogFragmentArgs.fromBundle(arguments as Bundle).finance
+
             binding?.dialogBtnNo?.setOnClickListener {
                 findNavController().navigateUp()
             }
 
             binding?.dialogBtnYes?.setOnClickListener {
-                if (deadline != null){
+                if (deadline != null) {
                     homeViewModel.deleteDeadline(deadline)
                     findNavController().navigateUp()
-                }else if (quicknotes != null){
+                } else if (quicknotes != null) {
                     homeViewModel.deleteQuicknotes(quicknotes)
+                    findNavController().navigateUp()
+                } else if (finance != null) {
+                    homeViewModel.deleteFinance(finance)
                     findNavController().navigateUp()
                 }
             }
