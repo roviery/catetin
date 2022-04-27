@@ -22,13 +22,13 @@
 
     <Button
         android:id="@+id/dialog_btn_no"
+        style="@style/Widget.Material3.Button.UnelevatedButton"
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="@string/no"
         android:textSize="18sp"
-        android:fontFamily="@font/poppins_regular"
-        style="@style/Widget.Material3.Button.ElevatedButton"
         app:layout_constraintEnd_toEndOf="@id/dialog_tv_choose"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@id/dialog_tv_choose"
@@ -36,12 +36,12 @@
 
     <Button
         android:id="@+id/dialog_btn_yes"
+        style="@style/Widget.Material3.Button.UnelevatedButton"
         android:layout_width="110dp"
         android:layout_height="50dp"
+        android:fontFamily="@font/poppins_regular"
         android:text="@string/yes"
         android:textSize="18sp"
-        android:fontFamily="@font/poppins_regular"
-        style="@style/Widget.Material3.Button.ElevatedButton"
         app:layout_constraintBottom_toBottomOf="@id/dialog_btn_no"
         app:layout_constraintEnd_toEndOf="@id/dialog_tv_choose"
         app:layout_constraintHorizontal_bias="0.9"

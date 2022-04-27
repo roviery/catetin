@@ -133,7 +133,13 @@ class HomeFragment : Fragment() {
     private fun loadQuicknotes() {
         homeViewModel.listQuicknotes.observe(viewLifecycleOwner) { quicknotes ->
             Log.d("Quicknotes List", quicknotes.toString())
-            quicknotesAdapter.setData(quicknotes)
+            if (quicknotes.isEmpty()) {
+                binding?.homeTvEmptyQuicknotes?.visibility = View.VISIBLE
+                quicknotesAdapter.setData(quicknotes)
+            } else {
+                binding?.homeTvEmptyQuicknotes?.visibility = View.GONE
+                quicknotesAdapter.setData(quicknotes)
+            }
         }
 
         with(binding?.homeRvQuicknotes) {
@@ -146,7 +152,13 @@ class HomeFragment : Fragment() {
     private fun loadFinance() {
         homeViewModel.listFinance.observe(viewLifecycleOwner) { finance ->
             Log.d("Finance List", finance.toString())
-            financeAdapter.setData(finance)
+            if (finance.isEmpty()) {
+                binding?.homeTvEmptyFinancial?.visibility = View.VISIBLE
+                financeAdapter.setData(finance)
+            } else {
+                binding?.homeTvEmptyFinancial?.visibility = View.GONE
+                financeAdapter.setData(finance)
+            }
         }
 
         with(binding?.homeRvFinancial) {

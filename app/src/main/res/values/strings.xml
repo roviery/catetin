@@ -11,6 +11,8 @@
     <string name="quick_notes">Quick Notes</string>
     <!--  empty value  -->
     <string name="empty_deadline">Hooray! you have no deadline</string>
+    <string name="empty_quicknotes">There is no Quick Notes</string>
+    <string name="empty_financial">No Financial Model</string>
     <!--  content description  -->
     <string name="insert_deadline">Insert Deadline</string>
     <string name="insert_quicknotes">Insert Quicknotes</string>
@@ -25,9 +27,6 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="delete_confirmation">Are you sure want to delete this item?</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fund_allocation">Fund Allocation</string>
     <string name="type">Type</string>
-
 </resources>

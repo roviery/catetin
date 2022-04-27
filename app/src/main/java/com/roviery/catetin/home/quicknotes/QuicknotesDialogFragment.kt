@@ -33,7 +33,7 @@ class QuicknotesDialogFragment : DialogFragment() {
         if (activity != null) {
             val quicknotes = QuicknotesDialogFragmentArgs.fromBundle(arguments as Bundle).quicknotes
 
-            if (quicknotes != null){
+            if (quicknotes != null) {
                 binding?.dialogEtNotes?.setText(quicknotes.quicknotesText)
             }
 
@@ -42,14 +42,13 @@ class QuicknotesDialogFragment : DialogFragment() {
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                if (quicknotes != null){
+                if (quicknotes != null) {
                     homeViewModel.updateQuicknotes(
                         quicknotes,
                         binding?.dialogEtNotes?.text.toString(),
                     )
                     findNavController().navigateUp()
-                }
-                else {
+                } else {
                     val newQuicknotes = Quicknotes(
                         0,
                         binding?.dialogEtNotes?.text.toString()
@@ -69,6 +68,6 @@ class QuicknotesDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 750)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 700)
     }
 }
