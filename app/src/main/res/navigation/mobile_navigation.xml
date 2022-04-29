@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.roviery.catetin.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_deadlineDialogFragment"
             app:destination="@id/deadlineDialogFragment" />
@@ -24,71 +24,71 @@
             app:destination="@id/financeDialogFragment" />
     </fragment>
     <fragment
-        android:id="@+id/financialFragment"
-        android:name="com.roviery.catetin.FinancialFragment"
-        android:label="fragment_financial"
-        tools:layout="@layout/fragment_financial" />
+        android:id="@+id/financeFragment"
+        android:name="com.roviery.finance.FinanceFragment"
+        android:label="Financial"
+        tools:layout="@layout/fragment_finance" />
     <fragment
         android:id="@+id/todoFragment"
         android:name="com.roviery.catetin.TodoFragment"
-        android:label="fragment_todo"
+        android:label="To Do"
         tools:layout="@layout/fragment_todo" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.roviery.catetin.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <dialog
         android:id="@+id/deadlineDialogFragment"
         android:name="com.roviery.catetin.home.deadline.DeadlineDialogFragment"
         android:label="fragment_deadline_dialog"
-        tools:layout="@layout/fragment_deadline_dialog" >
+        tools:layout="@layout/fragment_deadline_dialog">
         <argument
             android:name="deadline"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Deadline"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </dialog>
     <dialog
         android:id="@+id/deleteDialogFragment"
         android:name="com.roviery.catetin.home.DeleteDialogFragment"
         android:label="fragment_delete_dialog"
-        tools:layout="@layout/fragment_delete_dialog" >
+        tools:layout="@layout/fragment_delete_dialog">
         <argument
             android:name="deadline"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Deadline"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <argument
             android:name="quicknotes"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Quicknotes"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <argument
             android:name="finance"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Finance"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </dialog>
     <dialog
         android:id="@+id/quicknotesDialogFragment"
         android:name="com.roviery.catetin.home.quicknotes.QuicknotesDialogFragment"
         android:label="fragment_quicknotes_dialog"
-        tools:layout="@layout/fragment_quicknotes_dialog" >
+        tools:layout="@layout/fragment_quicknotes_dialog">
         <argument
             android:name="quicknotes"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Quicknotes"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </dialog>
     <dialog
         android:id="@+id/financeDialogFragment"
         android:name="com.roviery.catetin.home.financial.FinanceDialogFragment"
-        android:label="FinanceDialogFragment" >
+        android:label="FinanceDialogFragment">
         <argument
             android:name="finance"
+            android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Finance"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </dialog>
 </navigation>

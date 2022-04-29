@@ -29,4 +29,5 @@
     <string name="delete_confirmation">Are you sure want to delete this item?</string>
     <string name="fund_allocation">Fund Allocation</string>
     <string name="type">Type</string>
+    <string name="title_finance">finance</string>
 </resources>

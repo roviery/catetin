@@ -4,6 +4,5 @@
     <color name="finance_green">#04DE00</color>
     <color name="finance_red">#FF0000</color>
     <color name="black">#FF000000</color>
-    <color name="gray">#B0B0B0</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

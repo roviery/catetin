@@ -42,18 +42,6 @@ class HomeViewModel(
 
     fun deleteFinance(finance: Finance) = financeUseCase.deleteFinance(finance)
 
-    // Finance Detail
-    val listFinanceDetail = financeDetailUseCase.getAllFinanceDetail().asLiveData()
-    fun insertFinanceDetail(financeDetail: FinanceDetail) =
-        financeDetailUseCase.insertFinanceDetail(financeDetail)
 
-    fun updateFinanceDetail(
-        financeDetail: FinanceDetail,
-        newType: String,
-        newName: String,
-        newExpense: Int
-    ) = financeDetailUseCase.updateFinanceDetail(financeDetail, newType, newName, newExpense)
-
-    fun deleteFinanceDetail(financeDetail: FinanceDetail) = financeDetailUseCase.deleteFinanceDetail(financeDetail)
 
 }

@@ -7,7 +7,7 @@
         android:title="@string/home"/>
 
     <item
-        android:id="@+id/financialFragment"
+        android:id="@+id/financeFragment"
         android:icon="@drawable/ic_financial"
         android:title="@string/financial"/>
 

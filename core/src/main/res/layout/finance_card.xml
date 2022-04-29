@@ -32,7 +32,7 @@
             android:layout_margin="8dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Fund Allocation"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -44,7 +44,7 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Rp1.000.000"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_fund_allocation"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,8 +57,7 @@
             android:layout_margin="8dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Used Fund"
-            android:textColor="@color/gray"
-            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_fund_allocation" />
 
@@ -69,7 +68,7 @@
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/poppins_regular"
             android:text="Rp200.000"
-            android:textColor="@color/gray"
+            android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_used_fund"
             app:layout_constraintEnd_toEndOf="parent"

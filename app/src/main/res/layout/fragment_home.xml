@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:overScrollMode="never"
     tools:context=".home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="186dp"
             android:orientation="horizontal"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/home_ib_deadline"
             app:layout_constraintStart_toStartOf="@id/home_tv_deadline"
@@ -92,6 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="270dp"
             android:orientation="vertical"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,6 +146,7 @@
             android:layout_width="0dp"
             android:layout_height="450dp"
             android:orientation="horizontal"
+            android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@id/home_ib_financial"
             app:layout_constraintStart_toStartOf="@id/home_tv_financial"
