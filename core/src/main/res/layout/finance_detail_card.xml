@@ -15,7 +15,7 @@
             android:id="@+id/finance_detail_expense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/finance_red"
+            android:background="@color/primary_orange"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center_vertical"
             android:paddingVertical="8dp"

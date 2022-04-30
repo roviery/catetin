@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.roviery.catetin.databinding.FragmentDeadlineDialogBinding
@@ -64,21 +65,28 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                if (deadline != null) {
-                    homeViewModel.updateDeadline(
-                        deadline, binding?.dialogTvDate?.text.toString(),
-                        binding?.dialogEtKeterangan?.text.toString()
-                    )
-                    dialog?.dismiss()
+                val notes = binding?.dialogEtKeterangan?.text.toString()
+
+                if (notes.isNotEmpty()) {
+                    if (deadline != null) {
+                        homeViewModel.updateDeadline(
+                            deadline, binding?.dialogTvDate?.text.toString(),
+                            binding?.dialogEtKeterangan?.text.toString()
+                        )
+                        dialog?.dismiss()
+                    } else {
+                        val newDeadline = Deadline(
+                            0,
+                            binding?.dialogTvDate?.text.toString(),
+                            binding?.dialogEtKeterangan?.text.toString()
+                        )
+                        homeViewModel.insertDeadline(newDeadline)
+                        dialog?.dismiss()
+                    }
                 } else {
-                    val newDeadline = Deadline(
-                        0,
-                        binding?.dialogTvDate?.text.toString(),
-                        binding?.dialogEtKeterangan?.text.toString()
-                    )
-                    homeViewModel.insertDeadline(newDeadline)
-                    dialog?.dismiss()
+                    Toast.makeText(requireContext(), "Invalid Data", Toast.LENGTH_SHORT).show()
                 }
+
             }
         }
     }

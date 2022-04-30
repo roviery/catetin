@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.roviery.catetin.databinding.FragmentQuicknotesDialogBinding
@@ -42,20 +43,27 @@ class QuicknotesDialogFragment : DialogFragment() {
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                if (quicknotes != null) {
-                    homeViewModel.updateQuicknotes(
-                        quicknotes,
-                        binding?.dialogEtNotes?.text.toString(),
-                    )
-                    findNavController().navigateUp()
+                val notes = binding?.dialogEtNotes?.text.toString()
+
+                if (notes.isNotEmpty()) {
+                    if (quicknotes != null) {
+                        homeViewModel.updateQuicknotes(
+                            quicknotes,
+                            binding?.dialogEtNotes?.text.toString(),
+                        )
+                        findNavController().navigateUp()
+                    } else {
+                        val newQuicknotes = Quicknotes(
+                            0,
+                            binding?.dialogEtNotes?.text.toString()
+                        )
+                        homeViewModel.insertQuicknotes(newQuicknotes)
+                        findNavController().navigateUp()
+                    }
                 } else {
-                    val newQuicknotes = Quicknotes(
-                        0,
-                        binding?.dialogEtNotes?.text.toString()
-                    )
-                    homeViewModel.insertQuicknotes(newQuicknotes)
-                    findNavController().navigateUp()
+                    Toast.makeText(requireContext(), "Invalid Data", Toast.LENGTH_SHORT).show()
                 }
+
             }
         }
     }
