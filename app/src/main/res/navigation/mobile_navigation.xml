@@ -27,7 +27,11 @@
         android:id="@+id/financeFragment"
         android:name="com.roviery.finance.FinanceFragment"
         android:label="Financial"
-        tools:layout="@layout/fragment_finance" />
+        tools:layout="@layout/fragment_finance" >
+        <action
+            android:id="@+id/action_financeFragment_to_financeDetailDialogFragment"
+            app:destination="@id/financeDetailDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/todoFragment"
         android:name="com.roviery.catetin.TodoFragment"
@@ -51,7 +55,7 @@
     </dialog>
     <dialog
         android:id="@+id/deleteDialogFragment"
-        android:name="com.roviery.catetin.home.DeleteDialogFragment"
+        android:name="com.roviery.catetin.DeleteDialogFragment"
         android:label="fragment_delete_dialog"
         tools:layout="@layout/fragment_delete_dialog">
         <argument
@@ -83,12 +87,24 @@
     </dialog>
     <dialog
         android:id="@+id/financeDialogFragment"
-        android:name="com.roviery.catetin.home.financial.FinanceDialogFragment"
+        android:name="com.roviery.catetin.home.finance.FinanceDialogFragment"
         android:label="FinanceDialogFragment">
         <argument
             android:name="finance"
             android:defaultValue="@null"
             app:argType="com.roviery.core.domain.model.Finance"
             app:nullable="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/financeDetailDialogFragment"
+        android:name="com.roviery.finance.FinanceDetailDialogFragment"
+        app:moduleName="Catetin.finance"
+        android:label="fragment_finance_detail_dialog"
+        tools:layout="@layout/fragment_finance_detail_dialog" >
+        <argument
+            android:name="financeDetail"
+            app:argType="com.roviery.core.domain.model.FinanceDetail"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </dialog>
 </navigation>

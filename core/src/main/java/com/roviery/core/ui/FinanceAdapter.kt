@@ -1,19 +1,19 @@
 package com.roviery.core.ui
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.roviery.core.R
-import com.roviery.core.databinding.DeadlineCardBinding
 import com.roviery.core.databinding.FinanceCardBinding
-import com.roviery.core.domain.model.Deadline
 import com.roviery.core.domain.model.Finance
 import java.text.NumberFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
-class FinanceAdapter : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() {
+class FinanceAdapter(private val context: Context) :
+    RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() {
 
     private var listData = ArrayList<Finance>()
     var onItemClick: ((Finance) -> Unit)? = null
@@ -41,15 +41,42 @@ class FinanceAdapter : RecyclerView.Adapter<FinanceAdapter.FinanceViewHolder>() 
     inner class FinanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = FinanceCardBinding.bind(itemView)
         fun bind(data: Finance) {
-            val fundAllocation = NumberFormat.getInstance(Locale.GERMAN).format(data.financeFundAllocation)
+            val fundAllocation =
+                NumberFormat.getInstance(Locale.GERMAN).format(data.financeFundAllocation)
             val usedFund = NumberFormat.getInstance(Locale.GERMAN).format(data.financeUsedFund)
-            val remainingFund = NumberFormat.getInstance(Locale.GERMAN).format(data.financeRemainingFund)
+            val remainingFund =
+                NumberFormat.getInstance(Locale.GERMAN).format(data.financeRemainingFund)
 
             with(binding) {
-                if (data.financeUsedFund > 0.8*data.financeFundAllocation)
+                if (data.financeUsedFund > 0.8 * data.financeFundAllocation) {
                     binding.tvTitle.setBackgroundResource(R.color.finance_red)
-                else if (data.financeUsedFund > 0.5*data.financeFundAllocation)
+                    binding.tvRemainingFund.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.finance_red
+                        )
+                    )
+                    binding.remainingFundNominal.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.finance_red
+                        )
+                    )
+                } else if (data.financeUsedFund > 0.5 * data.financeFundAllocation) {
                     binding.tvTitle.setBackgroundResource(R.color.primary_orange)
+                    binding.tvRemainingFund.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.primary_orange
+                        )
+                    )
+                    binding.remainingFundNominal.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.primary_orange
+                        )
+                    )
+                }
 
                 tvTitle.text = data.financeType
                 fundAllocationNominal.text = "Rp$fundAllocation"

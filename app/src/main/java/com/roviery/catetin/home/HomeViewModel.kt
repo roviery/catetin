@@ -4,10 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.roviery.core.domain.model.Deadline
 import com.roviery.core.domain.model.Finance
-import com.roviery.core.domain.model.FinanceDetail
 import com.roviery.core.domain.model.Quicknotes
 import com.roviery.core.domain.usecase.DeadlineUseCase
-import com.roviery.core.domain.usecase.FinanceDetailUseCase
 import com.roviery.core.domain.usecase.FinanceUseCase
 import com.roviery.core.domain.usecase.QuicknotesUseCase
 
@@ -15,7 +13,6 @@ class HomeViewModel(
     private val deadlineUseCase: DeadlineUseCase,
     private val quicknotesUseCase: QuicknotesUseCase,
     private val financeUseCase: FinanceUseCase,
-    private val financeDetailUseCase: FinanceDetailUseCase
 ) : ViewModel() {
 
     // Deadline
@@ -37,11 +34,22 @@ class HomeViewModel(
     // Finance
     val listFinance = financeUseCase.getAllFinance().asLiveData()
     fun insertFinance(finance: Finance) = financeUseCase.insertFinance(finance)
-    fun updateFinance(finance: Finance, newType: String, newFundAllocation: Int) =
-        financeUseCase.updateFinance(finance, newType, newFundAllocation)
+    fun updateFinance(
+        finance: Finance,
+        newType: String,
+        newFundAllocation: Int,
+        newUsedFund: Int,
+        newRemainingFund: Int
+    ) =
+        financeUseCase.updateFinance(
+            finance,
+            newType,
+            newFundAllocation,
+            newUsedFund,
+            newRemainingFund,
+        )
 
     fun deleteFinance(finance: Finance) = financeUseCase.deleteFinance(finance)
-
 
 
 }

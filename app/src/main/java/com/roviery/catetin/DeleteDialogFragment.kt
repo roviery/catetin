@@ -1,4 +1,4 @@
-package com.roviery.catetin.home
+package com.roviery.catetin
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.roviery.catetin.databinding.FragmentDeleteDialogBinding
+import com.roviery.catetin.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DeleteDialogFragment() : DialogFragment() {

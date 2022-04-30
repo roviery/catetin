@@ -18,6 +18,13 @@ class FinanceRepository(
             DataMapperFinance.mapEntitiesToDomain(it)
         }
 
+    override fun getAllFinanceType(): Flow<List<String>> =
+        localDataSource.getAllFinanceType()
+
+    override fun getFinanceWithType(type: String): Finance {
+        val financeEntity = localDataSource.getFinanceWithType(type)
+        return DataMapperFinance.entityToDomain(financeEntity)
+    }
 
     override fun insertFinance(finance: Finance) {
         val financeEntity = DataMapperFinance.mapDomainToEntity(finance)
@@ -25,10 +32,24 @@ class FinanceRepository(
             .execute { localDataSource.insertFinance(financeEntity) }
     }
 
-    override fun updateFinance(finance: Finance, newType: String, newFundAllocation: Int) {
+    override fun updateFinance(
+        finance: Finance,
+        newType: String,
+        newFundAllocation: Int,
+        newUsedFund: Int,
+        newRemainingFund: Int
+    ) {
         val financeEntity = DataMapperFinance.mapDomainToEntity(finance)
         appExecutors.diskIO()
-            .execute { localDataSource.updateFinance(financeEntity, newType, newFundAllocation) }
+            .execute {
+                localDataSource.updateFinance(
+                    financeEntity,
+                    newType,
+                    newFundAllocation,
+                    newUsedFund,
+                    newRemainingFund,
+                )
+            }
     }
 
     override fun deleteFinance(finance: Finance) {

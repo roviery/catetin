@@ -7,9 +7,19 @@ interface IFinanceRepository {
 
     fun getAllFinance(): Flow<List<Finance>>
 
+    fun getAllFinanceType(): Flow<List<String>>
+
+    fun getFinanceWithType(type: String): Finance
+
     fun insertFinance(finance: Finance)
 
-    fun updateFinance(finance: Finance, newType: String, newFundAllocation: Int)
+    fun updateFinance(
+        finance: Finance,
+        newType: String,
+        newFundAllocation: Int,
+        newUsedFund: Int,
+        newRemainingFund: Int
+    )
 
     fun deleteFinance(finance: Finance)
 }

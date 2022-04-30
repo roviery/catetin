@@ -22,7 +22,9 @@ val databaseModule = module {
             androidContext(),
             CatetinDatabase::class.java,
             "Catetin.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
     }
 }
 

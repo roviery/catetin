@@ -1,9 +1,10 @@
-package com.roviery.catetin.home.financial
+package com.roviery.catetin.home.finance
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.catetin.databinding.FragmentFinanceDialogBinding
@@ -36,23 +37,35 @@ class FinanceDialogFragment : BottomSheetDialogFragment() {
                 binding?.dialogEtFundAllocation?.setText(finance.financeFundAllocation.toString())
             }
 
+
             binding?.dialogBtnSave?.setOnClickListener {
-                if (finance != null) {
-                    homeViewModel.updateFinance(
-                        finance,
-                        binding?.dialogEtType?.text.toString(),
-                        Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString())
-                    )
-                    findNavController().navigateUp()
+                val type = binding?.dialogEtType?.text.toString()
+                val fundAllocationString = binding?.dialogEtFundAllocation?.text.toString()
+
+                if (type.isNotEmpty() && fundAllocationString.isNotEmpty()) {
+                    if (finance != null) {
+                        val newFundAllocation =
+                            Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString())
+                        homeViewModel.updateFinance(
+                            finance,
+                            binding?.dialogEtType?.text.toString(),
+                            newFundAllocation,
+                            finance.financeUsedFund,
+                            newFundAllocation - finance.financeUsedFund
+                        )
+                        findNavController().navigateUp()
+                    } else {
+                        val newFinance = Finance(
+                            binding?.dialogEtType?.text.toString(),
+                            Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString()),
+                            0,
+                            Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString())
+                        )
+                        homeViewModel.insertFinance(newFinance)
+                        findNavController().navigateUp()
+                    }
                 } else {
-                    val newFinance = Finance(
-                        binding?.dialogEtType?.text.toString(),
-                        Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString()),
-                        0,
-                        Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString())
-                    )
-                    homeViewModel.insertFinance(newFinance)
-                    findNavController().navigateUp()
+                    Toast.makeText(requireContext(), "Invalid Data", Toast.LENGTH_SHORT).show()
                 }
             }
         }

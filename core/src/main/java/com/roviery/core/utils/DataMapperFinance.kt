@@ -21,4 +21,12 @@ object DataMapperFinance {
                 financeRemainingFund = it.financeRemainingFund
             )
         }
+
+    fun entityToDomain(input: FinanceEntity) =
+        Finance(
+            financeType = input.financeType,
+            financeFundAllocation = input.financeFundAllocation,
+            financeUsedFund = input.financeUsedFund,
+            financeRemainingFund = input.financeRemainingFund
+        )
 }

@@ -40,11 +40,23 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
 
     fun getAllFinance(): Flow<List<FinanceEntity>> = catetinDao.getAllFinance()
 
+    fun getAllFinanceType(): Flow<List<String>> = catetinDao.getAllFinanceType()
+
+    fun getFinanceWithType(type: String): FinanceEntity = catetinDao.getFinanceWithType(type)
+
     fun insertFinance(finance: FinanceEntity) = catetinDao.insertFinance(finance)
 
-    fun updateFinance(finance: FinanceEntity, newType: String, newFundAllocation: Int) {
+    fun updateFinance(
+        finance: FinanceEntity,
+        newType: String,
+        newFundAllocation: Int,
+        newUsedFund: Int,
+        newRemainingFund: Int,
+    ) {
         finance.financeType = newType
         finance.financeFundAllocation = newFundAllocation
+        finance.financeUsedFund = newUsedFund
+        finance.financeRemainingFund = newRemainingFund
         catetinDao.updateFinance(finance)
     }
 

@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class FinanceEntity(
 
     @NonNull
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "FType")
     var financeType: String,
 

@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         if (activity != null) {
             deadlineAdapter = DeadlineAdapter()
             quicknotesAdapter = QuicknotesAdapter()
-            financeAdapter = FinanceAdapter()
+            financeAdapter = FinanceAdapter(requireContext())
 
             val swipeGesture = object : SwipeGesture(requireActivity()) {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {

@@ -6,12 +6,12 @@
     android:paddingBottom="60dp">
 
     <TextView
-        android:id="@+id/insert_finance_title"
+        android:id="@+id/insert_finance_detail_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Insert Your Finance Model"
+        android:text="Insert Your Expenses"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dialog_ti_type"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
@@ -28,12 +28,35 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintEnd_toEndOf="@id/insert_finance_title"
-        app:layout_constraintStart_toStartOf="@id/insert_finance_title"
-        app:layout_constraintTop_toBottomOf="@id/insert_finance_title">
+        app:layout_constraintEnd_toEndOf="@id/insert_finance_detail_title"
+        app:layout_constraintStart_toStartOf="@id/insert_finance_detail_title"
+        app:layout_constraintTop_toBottomOf="@id/insert_finance_detail_title">
+
+        <AutoCompleteTextView
+            android:id="@+id/dialog_autocomplete_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dialog_ti_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:hint="@string/name"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:layout_constraintEnd_toEndOf="@id/insert_finance_detail_title"
+        app:layout_constraintStart_toStartOf="@id/insert_finance_detail_title"
+        app:layout_constraintTop_toBottomOf="@id/dialog_ti_type">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dialog_et_type"
+            android:id="@+id/dialog_et_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -42,23 +65,23 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dialog_ti_fund_allocation"
+        android:id="@+id/dialog_ti_expense"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
-        android:hint="@string/fund_allocation"
+        android:hint="@string/expense"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintEnd_toEndOf="@id/insert_finance_title"
-        app:layout_constraintStart_toStartOf="@id/insert_finance_title"
-        app:layout_constraintTop_toBottomOf="@id/dialog_ti_type"
+        app:layout_constraintEnd_toEndOf="@id/insert_finance_detail_title"
+        app:layout_constraintStart_toStartOf="@id/insert_finance_detail_title"
+        app:layout_constraintTop_toBottomOf="@id/dialog_ti_name"
         app:prefixText="Rp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/dialog_et_fund_allocation"
+            android:id="@+id/dialog_et_expense"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -75,9 +98,8 @@
         android:fontFamily="@font/poppins_regular"
         android:text="@string/save"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/insert_finance_title"
-        app:layout_constraintStart_toStartOf="@id/insert_finance_title"
-        app:layout_constraintTop_toBottomOf="@id/dialog_ti_fund_allocation" />
+        app:layout_constraintEnd_toEndOf="@id/insert_finance_detail_title"
+        app:layout_constraintStart_toStartOf="@id/insert_finance_detail_title"
+        app:layout_constraintTop_toBottomOf="@id/dialog_ti_expense" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
