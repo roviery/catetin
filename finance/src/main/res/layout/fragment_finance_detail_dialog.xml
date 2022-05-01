@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/insert_finance_detail_title">
 
         <AutoCompleteTextView
+            android:id="@+id/dialog_autocomplete_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none" />
@@ -55,6 +56,7 @@
         app:layout_constraintTop_toBottomOf="@id/dialog_ti_type">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_et_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -79,6 +81,7 @@
         app:prefixText="Rp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dialog_et_expense"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -87,6 +90,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/dialog_btn_save"
         style="@style/Widget.Material3.Button.UnelevatedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

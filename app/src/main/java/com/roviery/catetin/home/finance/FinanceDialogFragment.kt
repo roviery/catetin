@@ -1,6 +1,7 @@
 package com.roviery.catetin.home.finance
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +57,7 @@ class FinanceDialogFragment : BottomSheetDialogFragment() {
                         findNavController().navigateUp()
                     } else {
                         val newFinance = Finance(
+                            0,
                             binding?.dialogEtType?.text.toString(),
                             Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString()),
                             0,

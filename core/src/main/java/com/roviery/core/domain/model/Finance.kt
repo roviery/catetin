@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Finance(
+    val financeId: Int,
     val financeType: String,
     val financeFundAllocation: Int,
     val financeUsedFund: Int,
