@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_todo" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.roviery.catetin.ProfileFragment"
+        android:name="com.roviery.todo.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <dialog

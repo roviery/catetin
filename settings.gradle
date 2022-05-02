@@ -17,3 +17,4 @@ rootProject.name = "Catetin"
 include ':app'
 include ':core'
 include ':finance'
+include ':todo'

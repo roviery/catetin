@@ -30,4 +30,5 @@
     <string name="fund_allocation">Fund Allocation</string>
     <string name="type">Type</string>
     <string name="title_finance">finance</string>
+    <string name="title_todo">todo</string>
 </resources>
