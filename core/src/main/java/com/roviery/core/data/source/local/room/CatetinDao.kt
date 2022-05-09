@@ -72,4 +72,7 @@ interface CatetinDao {
     @Delete
     fun deleteFinanceDetail(financeDetail: FinanceDetailEntity)
 
+    @Query("DELETE FROM FinanceDetail WHERE FDType = :type")
+    fun deleteAllFinanceDetailWithType(type: String)
+
 }

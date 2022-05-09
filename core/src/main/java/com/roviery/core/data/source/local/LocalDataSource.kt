@@ -60,7 +60,10 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
         catetinDao.updateFinance(finance)
     }
 
-    fun deleteFinance(finance: FinanceEntity) = catetinDao.deleteFinance(finance)
+    fun deleteFinance(finance: FinanceEntity){
+        catetinDao.deleteFinance(finance)
+        catetinDao.deleteAllFinanceDetailWithType(finance.financeType)
+    }
 
     // Finance Detail
 

@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.core.domain.model.FinanceDetail
 import com.roviery.finance.databinding.FragmentFinanceDetailDialogBinding
 import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.math.exp
 
 class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
 
@@ -47,33 +48,56 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                val type = binding?.dialogAutocompleteTv?.text.toString()
-                val name = binding?.dialogEtName?.text.toString()
-                val expenseString = binding?.dialogEtExpense?.text.toString()
+                val newFDType = binding?.dialogAutocompleteTv?.text.toString()
+                val newFDName = binding?.dialogEtName?.text.toString()
+                val newFDExpenseString = binding?.dialogEtExpense?.text.toString()
 
-                if (type.isNotEmpty() && name.isNotEmpty() && expenseString.isNotEmpty()) {
-                    val finance = financeViewModel.getFinanceWithType(type)
-                    val expense = Integer.parseInt(expenseString)
+                if (newFDType.isNotEmpty() && newFDName.isNotEmpty() && newFDExpenseString.isNotEmpty()) {
+                    val newFinance = financeViewModel.getFinanceWithType(newFDType)
+                    val newFDExpense = Integer.parseInt(newFDExpenseString)
+
                     if (financeDetail != null) {
+                        val oldFDType = financeDetail.financeDetailType
+                        val oldFinance = financeViewModel.getFinanceWithType(oldFDType)
+                        val oldFDExpense = financeDetail.financeDetailExpense
+
                         // update finance detail
-                        val tempExpense = financeDetail.financeDetailExpense
                         financeViewModel.updateFinanceDetail(
                             financeDetail,
-                            type,
-                            name,
-                            expense
+                            newFDType,
+                            newFDName,
+                            newFDExpense
                         )
 
                         // update finance
-                        financeViewModel.updateFinance(
-                            finance,
-                            finance.financeType,
-                            finance.financeFundAllocation,
-                            finance.financeUsedFund + expense - tempExpense,
-                            finance.financeRemainingFund - expense + tempExpense
-                        )
+                        if (newFDType != oldFDType){
+                            financeViewModel.updateFinance(
+                                oldFinance,
+                                oldFDType,
+                                oldFinance.financeFundAllocation,
+                                oldFinance.financeUsedFund - oldFDExpense,
+                                oldFinance.financeRemainingFund + oldFDExpense
+                            )
+
+                            financeViewModel.updateFinance(
+                                newFinance,
+                                newFDType,
+                                newFinance.financeFundAllocation,
+                                newFinance.financeUsedFund + newFDExpense,
+                                newFinance.financeRemainingFund - newFDExpense,
+                            )
+                        }else{
+                            financeViewModel.updateFinance(
+                                newFinance,
+                                newFinance.financeType,
+                                newFinance.financeFundAllocation,
+                                newFinance.financeUsedFund + newFDExpense - oldFDExpense,
+                                newFinance.financeRemainingFund - newFDExpense + oldFDExpense
+                            )
+                        }
                         findNavController().navigateUp()
-                    } else {
+                    }
+                    else {
                         // insert finance detail
                         val newFinanceDetail = FinanceDetail(
                             0,
@@ -85,11 +109,11 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
 
                         // update finance
                         financeViewModel.updateFinance(
-                            finance,
-                            finance.financeType,
-                            finance.financeFundAllocation,
-                            finance.financeUsedFund + expense,
-                            finance.financeRemainingFund - expense
+                            newFinance,
+                            newFinance.financeType,
+                            newFinance.financeFundAllocation,
+                            newFinance.financeUsedFund + newFDExpense,
+                            newFinance.financeRemainingFund - newFDExpense
                         )
                         findNavController().navigateUp()
                     }
