@@ -34,12 +34,12 @@
     </fragment>
     <fragment
         android:id="@+id/todoFragment"
-        android:name="com.roviery.catetin.TodoFragment"
+        android:name="com.roviery.todo.TodoFragment"
         android:label="To Do"
         tools:layout="@layout/fragment_todo" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.roviery.todo.ProfileFragment"
+        android:name="com.roviery.catetin.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <dialog
