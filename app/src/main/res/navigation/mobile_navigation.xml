@@ -36,7 +36,11 @@
         android:id="@+id/todoFragment"
         android:name="com.roviery.todo.TodoFragment"
         android:label="To Do"
-        tools:layout="@layout/fragment_todo" />
+        tools:layout="@layout/fragment_todo" >
+        <action
+            android:id="@+id/action_todoFragment_to_todoDialogFragment"
+            app:destination="@id/todoDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.roviery.catetin.ProfileFragment"
@@ -107,4 +111,10 @@
             app:nullable="true"
             android:defaultValue="@null" />
     </dialog>
+    <dialog
+        android:id="@+id/todoDialogFragment"
+        android:name="com.roviery.todo.TodoDialogFragment"
+        app:moduleName="Catetin.todo"
+        android:label="fragment_todo_dialog"
+        tools:layout="@layout/fragment_todo_dialog" />
 </navigation>

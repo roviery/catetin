@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="todo">To Do</string>
+    <string name="in_progress">In Progress</string>
+    <string name="save">Save</string>
+    <string name="insert_to_do">Insert To Do</string>
+</resources>

@@ -7,15 +7,89 @@
     tools:context=".TodoFragment">
 
     <TextView
+        android:id="@+id/todo_tv_todo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="@string/todo"
         android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo_rv_todo"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_tv_todo"
+        tools:listitem="@layout/todo_card" />
+
+    <TextView
+        android:id="@+id/todo_tv_inprogress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="@string/in_progress"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_rv_todo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo_rv_inprogress"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_tv_inprogress"
+        tools:listitem="@layout/todo_card" />
+
+    <TextView
+        android:id="@+id/todo_tv_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Done"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_rv_inprogress" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo_rv_done"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/todo_tv_done"
+        tools:listitem="@layout/todo_card" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/todo_fb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        android:contentDescription="Add To Do"
+        android:elevation="5dp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@null"
+        app:srcCompat="@drawable/ic_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

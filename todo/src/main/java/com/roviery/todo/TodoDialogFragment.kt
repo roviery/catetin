@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.roviery.catetin.R
-import com.roviery.todo.databinding.FragmentTodoBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.roviery.todo.databinding.FragmentTodoDialogBinding
 
-class TodoFragment : Fragment() {
+class TodoDialogFragment : BottomSheetDialogFragment() {
 
-    private var _binding : FragmentTodoBinding? = null
+    private var _binding: FragmentTodoDialogBinding? = null
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -19,23 +18,22 @@ class TodoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentTodoBinding.inflate(inflater, container, false)
+        _binding = FragmentTodoDialogBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (activity != null){
-
-
-            binding?.todoFb?.setOnClickListener {
-                findNavController().navigate(R.id.action_todoFragment_to_todoDialogFragment)
+        if (activity != null) {
+            binding?.dialogBtnSave?.setOnClickListener {
+                findNavController().navigateUp()
             }
-
-
         }
+    }
 
+    companion object {
+        const val TAG = "Todo Dialog"
     }
 
 }
