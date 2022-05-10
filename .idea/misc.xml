@@ -21,15 +21,19 @@
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/fragment_todo.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/insert_deadline.xml" value="0.3223958333333333" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/drawable/todo_card_bg.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/deadline_card.xml" value="0.5" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_card.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_detail_card.xml" value="0.33" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/financial_card.xml" value="0.5" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/quicknotes_card.xml" value="0.31302083333333336" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/todo_card.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/finance/src/main/res/layout/fragment_finance.xml" value="0.25" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/finance/src/main/res/layout/fragment_finance_detail_dialog.xml" value="0.29375" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/finance/src/main/res/layout/fragment_financial.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/finance/src/main/res/layout/list_item.xml" value="0.31302083333333336" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_todo.xml" value="0.31302083333333336" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_todo_dialog.xml" value="0.29375" />
       </map>
     </option>
   </component>
