@@ -1,9 +1,6 @@
 package com.roviery.core.data.source.local
 
-import com.roviery.core.data.source.local.entity.DeadlineEntity
-import com.roviery.core.data.source.local.entity.FinanceDetailEntity
-import com.roviery.core.data.source.local.entity.FinanceEntity
-import com.roviery.core.data.source.local.entity.QuicknotesEntity
+import com.roviery.core.data.source.local.entity.*
 import com.roviery.core.data.source.local.room.CatetinDao
 import kotlinx.coroutines.flow.Flow
 
@@ -60,7 +57,7 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
         catetinDao.updateFinance(finance)
     }
 
-    fun deleteFinance(finance: FinanceEntity){
+    fun deleteFinance(finance: FinanceEntity) {
         catetinDao.deleteFinance(finance)
         catetinDao.deleteAllFinanceDetailWithType(finance.financeType)
     }
@@ -86,5 +83,19 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
 
     fun deleteFinanceDetail(financeDetail: FinanceDetailEntity) =
         catetinDao.deleteFinanceDetail(financeDetail)
+
+    // Todo
+
+    fun getAllTodo(status: String): Flow<List<TodoEntity>> = catetinDao.getAllTodo(status)
+
+    fun insertTodo(todo: TodoEntity) = catetinDao.insertTodo(todo)
+
+    fun updateTodo(todo: TodoEntity, newStatus: String, newMessage: String) {
+        todo.todoStatus = newStatus
+        todo.todoMessage = newMessage
+        catetinDao.updateTodo(todo)
+    }
+
+    fun deleteTodo(todo: TodoEntity) = catetinDao.deleteTodo(todo)
 
 }

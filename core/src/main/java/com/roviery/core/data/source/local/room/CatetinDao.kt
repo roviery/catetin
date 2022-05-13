@@ -1,10 +1,7 @@
 package com.roviery.core.data.source.local.room
 
 import androidx.room.*
-import com.roviery.core.data.source.local.entity.DeadlineEntity
-import com.roviery.core.data.source.local.entity.FinanceDetailEntity
-import com.roviery.core.data.source.local.entity.FinanceEntity
-import com.roviery.core.data.source.local.entity.QuicknotesEntity
+import com.roviery.core.data.source.local.entity.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -74,5 +71,19 @@ interface CatetinDao {
 
     @Query("DELETE FROM FinanceDetail WHERE FDType = :type")
     fun deleteAllFinanceDetailWithType(type: String)
+
+    // Todo
+
+    @Query("SELECT * FROM Todo WHERE todoStatus = :status")
+    fun getAllTodo(status: String): Flow<List<TodoEntity>>
+
+    @Insert
+    fun insertTodo(todo: TodoEntity)
+
+    @Update
+    fun updateTodo(todo: TodoEntity)
+
+    @Delete
+    fun deleteTodo(todo: TodoEntity)
 
 }

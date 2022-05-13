@@ -10,6 +10,7 @@ val useCaseModule = module {
     factory<QuicknotesUseCase> { QuicknotesInteractor(get()) }
     factory<FinanceUseCase> { FinanceInteractor(get()) }
     factory<FinanceDetailUseCase> { FinanceDetailInteractor(get()) }
+    factory<TodoUseCase> { TodoInteractor(get()) }
 }
 
 val viewModelModule = module {
