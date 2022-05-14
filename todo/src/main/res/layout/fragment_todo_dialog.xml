@@ -17,6 +17,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/todo_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/delete_todo"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_tv_insert"
+        app:layout_constraintEnd_toEndOf="@id/dialog_tv_insert"
+        app:layout_constraintTop_toTopOf="@id/dialog_tv_insert" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dialog_ti_todo"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -51,6 +64,6 @@
         android:text="@string/save"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/dialog_ti_todo"
-        app:layout_constraintTop_toBottomOf="@id/dialog_ti_todo"/>
+        app:layout_constraintTop_toBottomOf="@id/dialog_ti_todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

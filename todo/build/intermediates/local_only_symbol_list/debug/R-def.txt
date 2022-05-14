@@ -1,3 +1,26 @@
 R_DEF: Internal format may change without notice
 local
+drawable ic_delete
+id dialog_btn_save
+id dialog_et_todo
+id dialog_ti_todo
+id dialog_tv_insert
+id todo_delete
+id todo_empty_done
+id todo_empty_inprogress
+id todo_empty_todo
+id todo_fb
+id todo_rv_done
+id todo_rv_inprogress
+id todo_rv_todo
+id todo_tv_done
+id todo_tv_inprogress
+id todo_tv_todo
 layout fragment_todo
+layout fragment_todo_dialog
+string delete_todo
+string empty
+string in_progress
+string insert_to_do
+string save
+string todo

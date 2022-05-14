@@ -27,8 +27,8 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        val quicknotes = listData[position]
-        holder.bind(quicknotes)
+        val todo = listData[position]
+        holder.bind(todo)
     }
 
     override fun getItemCount(): Int = listData.size

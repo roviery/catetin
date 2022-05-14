@@ -116,5 +116,11 @@
         android:name="com.roviery.todo.TodoDialogFragment"
         app:moduleName="Catetin.todo"
         android:label="fragment_todo_dialog"
-        tools:layout="@layout/fragment_todo_dialog" />
+        tools:layout="@layout/fragment_todo_dialog" >
+        <argument
+            android:name="todo"
+            app:argType="com.roviery.core.domain.model.Todo"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
 </navigation>

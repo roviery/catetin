@@ -4,4 +4,6 @@
     <string name="in_progress">In Progress</string>
     <string name="save">Save</string>
     <string name="insert_to_do">Insert To Do</string>
+    <string name="delete_todo">Delete Todo</string>
+    <string name="empty">Empty</string>
 </resources>

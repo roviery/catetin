@@ -4,20 +4,70 @@ package com.roviery.todo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.roviery.todo.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentTodoBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
-  private FragmentTodoBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final TextView todoEmptyDone;
+
+  @NonNull
+  public final TextView todoEmptyInprogress;
+
+  @NonNull
+  public final TextView todoEmptyTodo;
+
+  @NonNull
+  public final FloatingActionButton todoFb;
+
+  @NonNull
+  public final RecyclerView todoRvDone;
+
+  @NonNull
+  public final RecyclerView todoRvInprogress;
+
+  @NonNull
+  public final RecyclerView todoRvTodo;
+
+  @NonNull
+  public final TextView todoTvDone;
+
+  @NonNull
+  public final TextView todoTvInprogress;
+
+  @NonNull
+  public final TextView todoTvTodo;
+
+  private FragmentTodoBinding(@NonNull ConstraintLayout rootView, @NonNull TextView todoEmptyDone,
+      @NonNull TextView todoEmptyInprogress, @NonNull TextView todoEmptyTodo,
+      @NonNull FloatingActionButton todoFb, @NonNull RecyclerView todoRvDone,
+      @NonNull RecyclerView todoRvInprogress, @NonNull RecyclerView todoRvTodo,
+      @NonNull TextView todoTvDone, @NonNull TextView todoTvInprogress,
+      @NonNull TextView todoTvTodo) {
     this.rootView = rootView;
+    this.todoEmptyDone = todoEmptyDone;
+    this.todoEmptyInprogress = todoEmptyInprogress;
+    this.todoEmptyTodo = todoEmptyTodo;
+    this.todoFb = todoFb;
+    this.todoRvDone = todoRvDone;
+    this.todoRvInprogress = todoRvInprogress;
+    this.todoRvTodo = todoRvTodo;
+    this.todoTvDone = todoTvDone;
+    this.todoTvInprogress = todoTvInprogress;
+    this.todoTvTodo = todoTvTodo;
   }
 
   @Override
@@ -43,10 +93,75 @@ public final class FragmentTodoBinding implements ViewBinding {
 
   @NonNull
   public static FragmentTodoBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.todo_empty_done;
+      TextView todoEmptyDone = ViewBindings.findChildViewById(rootView, id);
+      if (todoEmptyDone == null) {
+        break missingId;
+      }
 
-    return new FragmentTodoBinding((ConstraintLayout) rootView);
+      id = R.id.todo_empty_inprogress;
+      TextView todoEmptyInprogress = ViewBindings.findChildViewById(rootView, id);
+      if (todoEmptyInprogress == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_empty_todo;
+      TextView todoEmptyTodo = ViewBindings.findChildViewById(rootView, id);
+      if (todoEmptyTodo == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_fb;
+      FloatingActionButton todoFb = ViewBindings.findChildViewById(rootView, id);
+      if (todoFb == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_rv_done;
+      RecyclerView todoRvDone = ViewBindings.findChildViewById(rootView, id);
+      if (todoRvDone == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_rv_inprogress;
+      RecyclerView todoRvInprogress = ViewBindings.findChildViewById(rootView, id);
+      if (todoRvInprogress == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_rv_todo;
+      RecyclerView todoRvTodo = ViewBindings.findChildViewById(rootView, id);
+      if (todoRvTodo == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_tv_done;
+      TextView todoTvDone = ViewBindings.findChildViewById(rootView, id);
+      if (todoTvDone == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_tv_inprogress;
+      TextView todoTvInprogress = ViewBindings.findChildViewById(rootView, id);
+      if (todoTvInprogress == null) {
+        break missingId;
+      }
+
+      id = R.id.todo_tv_todo;
+      TextView todoTvTodo = ViewBindings.findChildViewById(rootView, id);
+      if (todoTvTodo == null) {
+        break missingId;
+      }
+
+      return new FragmentTodoBinding((ConstraintLayout) rootView, todoEmptyDone,
+          todoEmptyInprogress, todoEmptyTodo, todoFb, todoRvDone, todoRvInprogress, todoRvTodo,
+          todoTvDone, todoTvInprogress, todoTvTodo);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }
