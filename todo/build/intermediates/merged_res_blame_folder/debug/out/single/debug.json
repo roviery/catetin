@@ -4,6 +4,18 @@
         "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_todo_dialog.xml"
     },
     {
+        "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\layout_fragment_todo_view.xml.flat",
+        "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_todo_view.xml"
+    },
+    {
+        "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\layout_fragment_done_view.xml.flat",
+        "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_done_view.xml"
+    },
+    {
+        "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\layout_fragment_in_progress_view.xml.flat",
+        "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_in_progress_view.xml"
+    },
+    {
         "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\drawable_ic_delete.xml.flat",
         "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\drawable\\ic_delete.xml"
     },

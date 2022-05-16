@@ -2,8 +2,11 @@
 <resources>
     <string name="todo">To Do</string>
     <string name="in_progress">In Progress</string>
+    <string name="done">Done</string>
     <string name="save">Save</string>
     <string name="insert_to_do">Insert To Do</string>
     <string name="delete_todo">Delete Todo</string>
     <string name="empty">Empty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

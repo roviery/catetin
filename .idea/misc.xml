@@ -36,8 +36,11 @@
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/drawable/ic_delete.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/drawable/inprogress_bg.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/drawable/todo_bg.xml" value="0.24" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_done_view.xml" value="0.31302083333333336" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_in_progress_view.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_todo.xml" value="0.33440514469453375" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_todo_dialog.xml" value="0.41809045226130653" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/todo/src/main/res/layout/fragment_todo_view.xml" value="0.31302083333333336" />
       </map>
     </option>
   </component>
