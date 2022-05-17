@@ -15,6 +15,7 @@ int layout fragment_in_progress_view 0x7d030001
 int layout fragment_todo 0x7d030002
 int layout fragment_todo_dialog 0x7d030003
 int layout fragment_todo_view 0x7d030004
+int string add_to_do 0x7d040008
 int string delete_todo 0x7d040000
 int string done 0x7d040001
 int string empty 0x7d040002

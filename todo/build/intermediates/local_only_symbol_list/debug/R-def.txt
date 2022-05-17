@@ -17,6 +17,7 @@ layout fragment_in_progress_view
 layout fragment_todo
 layout fragment_todo_dialog
 layout fragment_todo_view
+string add_to_do
 string delete_todo
 string done
 string empty
