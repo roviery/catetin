@@ -58,6 +58,7 @@ class TodoViewFragment : Fragment() {
     private fun loadTodo() {
         todoViewModel.todoList.observe(viewLifecycleOwner) { todo ->
             Log.d("Todo List", todo.toString())
+            binding?.emptyTodo?.visibility = if (todo.isEmpty()) View.VISIBLE else View.GONE
             todoAdapter.setData(todo)
         }
 

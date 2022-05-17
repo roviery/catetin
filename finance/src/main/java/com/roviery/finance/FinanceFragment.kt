@@ -95,6 +95,7 @@ class FinanceFragment : Fragment() {
     private fun loadFinanceDetail() {
         financeViewModel.listFinanceDetail.observe(viewLifecycleOwner) { financeDetail ->
             Log.d("Finance Detail List", financeDetail.toString())
+            binding?.noDataPreview?.visibility = if (financeDetail.isEmpty()) View.VISIBLE else View.GONE
             financeDetailAdapter.setData(financeDetail)
         }
 

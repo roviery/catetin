@@ -55,9 +55,10 @@ class DoneViewFragment : Fragment() {
     }
 
     private fun loadDone() {
-        todoViewModel.doneList.observe(viewLifecycleOwner) { todo ->
-            Log.d("Todo List", todo.toString())
-            doneAdapter.setData(todo)
+        todoViewModel.doneList.observe(viewLifecycleOwner) { done ->
+            Log.d("Todo List", done.toString())
+            binding?.emptyTodo?.visibility = if (done.isEmpty()) View.VISIBLE else View.GONE
+            doneAdapter.setData(done)
         }
 
         with(binding?.doneRv) {

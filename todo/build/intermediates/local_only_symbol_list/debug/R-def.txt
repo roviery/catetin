@@ -6,6 +6,7 @@ id dialog_et_todo
 id dialog_ti_todo
 id dialog_tv_insert
 id done_rv
+id empty_todo
 id inprogress_rv
 id todo_delete
 id todo_fb
@@ -17,6 +18,7 @@ layout fragment_in_progress_view
 layout fragment_todo
 layout fragment_todo_dialog
 layout fragment_todo_view
+raw empty_todo
 string add_to_do
 string delete_todo
 string done

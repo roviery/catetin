@@ -17,4 +17,7 @@ dependencies{
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
     implementation "io.insert-koin:koin-android-viewmodel:$koin_version"
+
+    // lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
 }

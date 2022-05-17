@@ -8,6 +8,10 @@
         "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_todo_view.xml"
     },
     {
+        "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\raw_empty_todo.json.flat",
+        "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\raw\\empty_todo.json"
+    },
+    {
         "merged": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\build\\intermediates\\merged_res\\debug\\layout_fragment_done_view.xml.flat",
         "source": "D:\\Coding\\Project\\AndroidApp\\Catetin\\todo\\src\\main\\res\\layout\\fragment_done_view.xml"
     },

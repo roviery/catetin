@@ -57,9 +57,10 @@ class InProgressViewFragment : Fragment() {
     }
 
     private fun loadInProgress() {
-        todoViewModel.inProgressList.observe(viewLifecycleOwner) { todo ->
-            Log.d("Todo List", todo.toString())
-            inProgressAdapter.setData(todo)
+        todoViewModel.inProgressList.observe(viewLifecycleOwner) { inprogress ->
+            Log.d("Todo List", inprogress.toString())
+            binding?.emptyTodo?.visibility = if (inprogress.isEmpty()) View.VISIBLE else View.GONE
+            inProgressAdapter.setData(inprogress)
         }
 
         with(binding?.inprogressRv) {

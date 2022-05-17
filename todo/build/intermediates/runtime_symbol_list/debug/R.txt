@@ -4,6 +4,7 @@ int id dialog_et_todo 0x7d020001
 int id dialog_ti_todo 0x7d020002
 int id dialog_tv_insert 0x7d020003
 int id done_rv 0x7d020009
+int id empty_todo 0x7d02000b
 int id inprogress_rv 0x7d02000a
 int id todo_delete 0x7d020004
 int id todo_fb 0x7d020005
@@ -15,6 +16,7 @@ int layout fragment_in_progress_view 0x7d030001
 int layout fragment_todo 0x7d030002
 int layout fragment_todo_dialog 0x7d030003
 int layout fragment_todo_view 0x7d030004
+int raw empty_todo 0x7d050000
 int string add_to_do 0x7d040008
 int string delete_todo 0x7d040000
 int string done 0x7d040001
