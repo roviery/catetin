@@ -14,7 +14,7 @@ class FinanceViewModel(
 
     val listFinanceType = financeUseCase.getAllFinanceType().asLiveData()
 
-    fun getFinanceWithType(type: String) = financeUseCase.getFinanceWithType(type)
+    fun getFinanceByType(type: String) = financeUseCase.getFinanceByType(type)
 
     fun updateFinance(
         finance: Finance,

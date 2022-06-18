@@ -44,7 +44,7 @@ interface CatetinDao {
     fun getAllFinanceType(): Flow<List<String>>
 
     @Query("SELECT * FROM Finance WHERE FType = :type")
-    fun getFinanceWithType(type: String): FinanceEntity
+    fun getFinanceByType(type: String): FinanceEntity
 
     @Insert
     fun insertFinance(finance: FinanceEntity)

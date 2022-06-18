@@ -21,8 +21,8 @@ class FinanceRepository(
     override fun getAllFinanceType(): Flow<List<String>> =
         localDataSource.getAllFinanceType()
 
-    override fun getFinanceWithType(type: String): Finance {
-        val financeEntity = localDataSource.getFinanceWithType(type)
+    override fun getFinanceByType(type: String): Finance {
+        val financeEntity = localDataSource.getFinanceByType(type)
         return DataMapperFinance.entityToDomain(financeEntity)
     }
 

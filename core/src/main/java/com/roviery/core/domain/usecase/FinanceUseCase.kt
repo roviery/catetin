@@ -9,7 +9,7 @@ interface FinanceUseCase {
 
     fun getAllFinanceType(): Flow<List<String>>
 
-    fun getFinanceWithType(type: String): Finance
+    fun getFinanceByType(type: String): Finance
 
     fun insertFinance(finance: Finance)
 

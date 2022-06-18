@@ -53,12 +53,12 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
                 val newFDExpenseString = binding?.dialogEtExpense?.text.toString()
 
                 if (newFDType.isNotEmpty() && newFDName.isNotEmpty() && newFDExpenseString.isNotEmpty()) {
-                    val newFinance = financeViewModel.getFinanceWithType(newFDType)
+                    val newFinance = financeViewModel.getFinanceByType(newFDType)
                     val newFDExpense = Integer.parseInt(newFDExpenseString)
 
                     if (financeDetail != null) {
                         val oldFDType = financeDetail.financeDetailType
-                        val oldFinance = financeViewModel.getFinanceWithType(oldFDType)
+                        val oldFinance = financeViewModel.getFinanceByType(oldFDType)
                         val oldFDExpense = financeDetail.financeDetailExpense
 
                         // update finance detail

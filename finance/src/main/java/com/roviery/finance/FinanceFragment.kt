@@ -45,7 +45,7 @@ class FinanceFragment : Fragment() {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val financeDetail = financeDetailAdapter.getData(viewHolder.adapterPosition)
                     val type = financeDetail.financeDetailType
-                    val finance = financeViewModel.getFinanceWithType(type)
+                    val finance = financeViewModel.getFinanceByType(type)
                     when (direction) {
                         ItemTouchHelper.LEFT -> {
                             // update finance

@@ -9,7 +9,7 @@ class FinanceInteractor(private val financeRepository: IFinanceRepository) : Fin
 
     override fun getAllFinanceType(): Flow<List<String>> = financeRepository.getAllFinanceType()
 
-    override fun getFinanceWithType(type: String): Finance = financeRepository.getFinanceWithType(type)
+    override fun getFinanceByType(type: String): Finance = financeRepository.getFinanceByType(type)
 
     override fun insertFinance(finance: Finance) = financeRepository.insertFinance(finance)
 
