@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface FinanceDetailUseCase {
 
-    fun getAllFinanceDetail(): Flow<List<FinanceDetail>>
+    fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetail>>
 
     fun insertFinanceDetail(financeDetail: FinanceDetail)
 

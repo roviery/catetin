@@ -60,6 +60,9 @@ interface CatetinDao {
     @Query("SELECT * FROM FinanceDetail ORDER BY FDType")
     fun getAllFinanceDetail(): Flow<List<FinanceDetailEntity>>
 
+    @Query("SELECT * FROM FinanceDetail WHERE FDType IN(:type)")
+    fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetailEntity>>
+
     @Insert
     fun insertFinanceDetail(financeDetail: FinanceDetailEntity)
 

@@ -13,11 +13,10 @@ class FinanceDetailRepository(
     private val appExecutors: AppExecutors
 ) : IFinanceDetailRepository {
 
-    override fun getAllFinanceDetail(): Flow<List<FinanceDetail>> =
-        localDataSource.getAllFinanceDetail().map {
+    override fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetail>> =
+        localDataSource.getAllFinanceDetailByType(type).map {
             DataMapperFinanceDetail.mapEntitiesToDomain(it)
         }
-
 
     override fun insertFinanceDetail(financeDetail: FinanceDetail) {
         val financeDetailEntity = DataMapperFinanceDetail.mapDomainToEntity(financeDetail)

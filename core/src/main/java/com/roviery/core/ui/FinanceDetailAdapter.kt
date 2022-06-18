@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.roviery.core.R
-import com.roviery.core.databinding.FinanceDetailCardBinding
+import com.roviery.core.databinding.FinanceDetailBinding
 import com.roviery.core.domain.model.FinanceDetail
 import java.text.NumberFormat
 import java.util.*
@@ -29,7 +29,7 @@ class FinanceDetailAdapter : RecyclerView.Adapter<FinanceDetailAdapter.FinanceDe
         viewType: Int
     ): FinanceDetailAdapter.FinanceDetailViewHolder =
         FinanceDetailViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.finance_detail_card, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.finance_detail, parent, false)
         )
 
     override fun onBindViewHolder(
@@ -43,14 +43,14 @@ class FinanceDetailAdapter : RecyclerView.Adapter<FinanceDetailAdapter.FinanceDe
     override fun getItemCount(): Int = listData.size
 
     inner class FinanceDetailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = FinanceDetailCardBinding.bind(itemView)
+        private val binding = FinanceDetailBinding.bind(itemView)
         fun bind(data: FinanceDetail) {
             val expense = NumberFormat.getInstance(Locale.GERMAN).format(data.financeDetailExpense)
 
             with(binding) {
-                financeDetailExpense.text = "Rp$expense"
-                financeDetailType.text = data.financeDetailType
-                financeDetailName.text = data.financeDetailName
+                fdDate.text = "Rp$expense"
+                fdName.text = data.financeDetailName
+                fdDate.text = data.financeDetailDate
             }
         }
 

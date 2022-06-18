@@ -6,8 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 class FinanceDetailInteractor(private val financeDetailRepository: IFinanceDetailRepository) :
     FinanceDetailUseCase {
-    override fun getAllFinanceDetail(): Flow<List<FinanceDetail>> =
-        financeDetailRepository.getAllFinanceDetail()
+
+    override fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetail>> =
+        financeDetailRepository.getAllFinanceDetailByType(type)
 
     override fun insertFinanceDetail(financeDetail: FinanceDetail) =
         financeDetailRepository.insertFinanceDetail(financeDetail)

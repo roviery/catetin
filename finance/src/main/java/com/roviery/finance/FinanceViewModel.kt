@@ -33,7 +33,9 @@ class FinanceViewModel(
 
 
     // Finance Detail
-    val listFinanceDetail = financeDetailUseCase.getAllFinanceDetail().asLiveData()
+    fun getFinanceDetailByType(type: List<String>) =
+        financeDetailUseCase.getAllFinanceDetailByType(type).asLiveData()
+
     fun insertFinanceDetail(financeDetail: FinanceDetail) =
         financeDetailUseCase.insertFinanceDetail(financeDetail)
 

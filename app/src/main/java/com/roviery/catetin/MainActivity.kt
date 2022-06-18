@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setNotification()
+//        setNotification()
         setFingerprint()
         setSupportActionBar(binding.mainToolbar)
         setBottomNavigation()

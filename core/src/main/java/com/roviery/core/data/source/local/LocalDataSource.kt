@@ -63,8 +63,11 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
     }
 
     // Finance Detail
-
-    fun getAllFinanceDetail(): Flow<List<FinanceDetailEntity>> = catetinDao.getAllFinanceDetail()
+    fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetailEntity>> {
+        if (type.isEmpty())
+            return catetinDao.getAllFinanceDetail()
+        return catetinDao.getAllFinanceDetailByType(type)
+    }
 
     fun insertFinanceDetail(financeDetail: FinanceDetailEntity) =
         catetinDao.insertFinanceDetail(financeDetail)
