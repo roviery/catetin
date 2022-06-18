@@ -12,7 +12,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.core.domain.model.FinanceDetail
 import com.roviery.finance.databinding.FragmentFinanceDetailDialogBinding
 import org.koin.android.viewmodel.ext.android.viewModel
-import kotlin.math.exp
+import java.text.SimpleDateFormat
+import java.util.*
 
 class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
 
@@ -70,7 +71,7 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
                         )
 
                         // update finance
-                        if (newFDType != oldFDType){
+                        if (newFDType != oldFDType) {
                             financeViewModel.updateFinance(
                                 oldFinance,
                                 oldFDType,
@@ -86,7 +87,7 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
                                 newFinance.financeUsedFund + newFDExpense,
                                 newFinance.financeRemainingFund - newFDExpense,
                             )
-                        }else{
+                        } else {
                             financeViewModel.updateFinance(
                                 newFinance,
                                 newFinance.financeType,
@@ -96,12 +97,15 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
                             )
                         }
                         findNavController().navigateUp()
-                    }
-                    else {
+                    } else {
                         // insert finance detail
+                        val date = SimpleDateFormat("dd-MM-yyyy").format(Date())
+                        val time = SimpleDateFormat("HH:mm").format(Date())
+                        val dateTime = "$date  $time"
                         val newFinanceDetail = FinanceDetail(
                             0,
                             binding?.dialogAutocompleteTv?.text.toString(),
+                            dateTime,
                             binding?.dialogEtName?.text.toString(),
                             Integer.parseInt(binding?.dialogEtExpense?.text.toString())
                         )

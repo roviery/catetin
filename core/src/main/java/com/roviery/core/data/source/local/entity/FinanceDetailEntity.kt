@@ -18,6 +18,10 @@ data class FinanceDetailEntity(
     var financeDetailType: String,
 
     @NonNull
+    @ColumnInfo(name = "FDDate")
+    var financeDetailDate: String,
+
+    @NonNull
     @ColumnInfo(name = "FDName")
     var financeDetailName: String,
 

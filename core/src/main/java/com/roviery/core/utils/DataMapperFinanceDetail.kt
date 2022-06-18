@@ -8,6 +8,7 @@ object DataMapperFinanceDetail {
         FinanceDetailEntity(
             financeDetailId = input.financeDetailId,
             financeDetailType = input.financeDetailType,
+            financeDetailDate = input.financeDetailDate,
             financeDetailName = input.financeDetailName,
             financeDetailExpense = input.financeDetailExpense
         )
@@ -17,6 +18,7 @@ object DataMapperFinanceDetail {
             FinanceDetail(
                 financeDetailId = it.financeDetailId,
                 financeDetailType = it.financeDetailType,
+                financeDetailDate = it.financeDetailDate,
                 financeDetailName = it.financeDetailName,
                 financeDetailExpense = it.financeDetailExpense
             )

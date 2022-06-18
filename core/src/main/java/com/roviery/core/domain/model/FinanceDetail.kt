@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class FinanceDetail(
     var financeDetailId: Int,
     var financeDetailType: String,
+    var financeDetailDate: String,
     var financeDetailName: String,
     var financeDetailExpense: Int
 ) : Parcelable
