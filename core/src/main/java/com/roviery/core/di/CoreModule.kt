@@ -17,7 +17,7 @@ val databaseModule = module {
             CatetinDatabase::class.java,
             "Catetin.db"
         ).fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
+            .allowMainThreadQueries() // -> for type financial detail input
             .build()
     }
 }

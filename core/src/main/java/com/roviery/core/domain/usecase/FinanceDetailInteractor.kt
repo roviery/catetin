@@ -20,6 +20,9 @@ class FinanceDetailInteractor(private val financeDetailRepository: IFinanceDetai
         newExpense: Int
     ) = financeDetailRepository.updateFinanceDetail(financeDetail, newType, newName, newExpense)
 
+    override fun updateFinanceDetailType(oldType: String, newType: String) =
+        financeDetailRepository.updateFinanceDetailType(oldType, newType)
+
     override fun deleteFinanceDetail(financeDetail: FinanceDetail) =
         financeDetailRepository.deleteFinanceDetail(financeDetail)
 

@@ -48,7 +48,7 @@ class FinanceDetailAdapter : RecyclerView.Adapter<FinanceDetailAdapter.FinanceDe
             val expense = NumberFormat.getInstance(Locale.GERMAN).format(data.financeDetailExpense)
 
             with(binding) {
-                fdDate.text = "Rp$expense"
+                fdExpense.text = "Rp$expense"
                 fdName.text = data.financeDetailName
                 fdDate.text = data.financeDetailDate
             }

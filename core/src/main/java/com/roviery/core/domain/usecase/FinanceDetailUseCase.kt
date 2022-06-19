@@ -16,5 +16,10 @@ interface FinanceDetailUseCase {
         newExpense: Int
     )
 
+    fun updateFinanceDetailType(
+        oldType: String,
+        newType: String
+    )
+
     fun deleteFinanceDetail(financeDetail: FinanceDetail)
 }

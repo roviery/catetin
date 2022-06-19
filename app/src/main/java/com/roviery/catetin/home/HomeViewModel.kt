@@ -6,6 +6,7 @@ import com.roviery.core.domain.model.Deadline
 import com.roviery.core.domain.model.Finance
 import com.roviery.core.domain.model.Quicknotes
 import com.roviery.core.domain.usecase.DeadlineUseCase
+import com.roviery.core.domain.usecase.FinanceDetailUseCase
 import com.roviery.core.domain.usecase.FinanceUseCase
 import com.roviery.core.domain.usecase.QuicknotesUseCase
 
@@ -13,6 +14,7 @@ class HomeViewModel(
     private val deadlineUseCase: DeadlineUseCase,
     private val quicknotesUseCase: QuicknotesUseCase,
     private val financeUseCase: FinanceUseCase,
+    private val financeDetailUseCase: FinanceDetailUseCase,
 ) : ViewModel() {
 
     // Deadline
@@ -48,6 +50,11 @@ class HomeViewModel(
             newUsedFund,
             newRemainingFund,
         )
+
+    fun updateFinanceDetailType(
+        oldType: String,
+        newType: String
+    ) = financeDetailUseCase.updateFinanceDetailType(oldType, newType)
 
     fun deleteFinance(finance: Finance) = financeUseCase.deleteFinance(finance)
 

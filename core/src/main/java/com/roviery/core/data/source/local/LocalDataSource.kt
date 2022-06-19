@@ -79,10 +79,14 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
         newExpense: Int
     ) {
         financeDetail.financeDetailType = newType
+        financeDetail.financeDetailDate = financeDetail.financeDetailDate
         financeDetail.financeDetailName = newName
         financeDetail.financeDetailExpense = newExpense
         catetinDao.updateFinanceDetail(financeDetail)
     }
+
+    fun updateFinanceDetailType(oldType: String, newType: String) =
+        catetinDao.updateFinanceDetailType(oldType, newType)
 
     fun deleteFinanceDetail(financeDetail: FinanceDetailEntity) =
         catetinDao.deleteFinanceDetail(financeDetail)

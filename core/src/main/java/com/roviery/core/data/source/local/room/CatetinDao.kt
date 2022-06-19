@@ -40,7 +40,7 @@ interface CatetinDao {
     @Query("SELECT * FROM Finance")
     fun getAllFinance(): Flow<List<FinanceEntity>>
 
-    @Query("SELECT FType FROM Finance")
+    @Query("SELECT FType FROM Finance ORDER BY FType ASC")
     fun getAllFinanceType(): Flow<List<String>>
 
     @Query("SELECT * FROM Finance WHERE FType = :type")
@@ -57,10 +57,10 @@ interface CatetinDao {
 
     // Finance Detail
 
-    @Query("SELECT * FROM FinanceDetail ORDER BY FDType")
+    @Query("SELECT * FROM FinanceDetail ORDER BY FDDate DESC")
     fun getAllFinanceDetail(): Flow<List<FinanceDetailEntity>>
 
-    @Query("SELECT * FROM FinanceDetail WHERE FDType IN(:type)")
+    @Query("SELECT * FROM FinanceDetail WHERE FDType IN(:type) ORDER BY FDDate DESC")
     fun getAllFinanceDetailByType(type: List<String>): Flow<List<FinanceDetailEntity>>
 
     @Insert
@@ -68,6 +68,9 @@ interface CatetinDao {
 
     @Update
     fun updateFinanceDetail(financeDetail: FinanceDetailEntity)
+
+    @Query("UPDATE FinanceDetail SET FDType = :newType WHERE FDType = :oldType")
+    fun updateFinanceDetailType(oldType: String, newType: String)
 
     @Delete
     fun deleteFinanceDetail(financeDetail: FinanceDetailEntity)

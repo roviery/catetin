@@ -1,7 +1,6 @@
 package com.roviery.catetin.home.finance
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,11 +39,13 @@ class FinanceDialogFragment : BottomSheetDialogFragment() {
 
 
             binding?.dialogBtnSave?.setOnClickListener {
-                val type = binding?.dialogEtType?.text.toString()
+                val newType = binding?.dialogEtType?.text.toString()
                 val fundAllocationString = binding?.dialogEtFundAllocation?.text.toString()
 
-                if (type.isNotEmpty() && fundAllocationString.isNotEmpty()) {
+                if (newType.isNotEmpty() && fundAllocationString.isNotEmpty()) {
+
                     if (finance != null) {
+                        val oldType = finance.financeType
                         val newFundAllocation =
                             Integer.parseInt(binding?.dialogEtFundAllocation?.text.toString())
                         homeViewModel.updateFinance(
@@ -54,6 +55,7 @@ class FinanceDialogFragment : BottomSheetDialogFragment() {
                             finance.financeUsedFund,
                             newFundAllocation - finance.financeUsedFund
                         )
+                        homeViewModel.updateFinanceDetailType(oldType, newType)
                         findNavController().navigateUp()
                     } else {
                         val newFinance = Finance(

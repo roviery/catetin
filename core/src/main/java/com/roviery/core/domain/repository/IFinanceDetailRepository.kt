@@ -16,5 +16,10 @@ interface IFinanceDetailRepository {
         newExpense: Int
     )
 
+    fun updateFinanceDetailType(
+        oldType: String,
+        newType: String
+    )
+
     fun deleteFinanceDetail(financeDetail: FinanceDetail)
 }

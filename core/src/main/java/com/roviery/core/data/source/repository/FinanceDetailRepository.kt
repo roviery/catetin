@@ -42,6 +42,11 @@ class FinanceDetailRepository(
             }
     }
 
+    override fun updateFinanceDetailType(oldType: String, newType: String) {
+        appExecutors.diskIO()
+            .execute { localDataSource.updateFinanceDetailType(oldType, newType) }
+    }
+
     override fun deleteFinanceDetail(financeDetail: FinanceDetail) {
         val financeDetailEntity = DataMapperFinanceDetail.mapDomainToEntity(financeDetail)
         appExecutors.diskIO()
