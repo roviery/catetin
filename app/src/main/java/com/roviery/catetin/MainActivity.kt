@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 //        setNotification()
@@ -103,13 +105,13 @@ class MainActivity : AppCompatActivity() {
                 Log.e("Catetin Biometrics", "Biometric features are currently unavailable.")
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 // Prompts the user to create credentials that your app accepts.
-                val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                    /*val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
                     putExtra(
                         Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
                         BIOMETRIC_STRONG or DEVICE_CREDENTIAL
                     )
                 }
-                startActivityForResult(enrollIntent, REQUEST_CODE)
+                startActivityForResult(enrollIntent, REQUEST_CODE)*/
             }
         }
 
@@ -121,8 +123,9 @@ class MainActivity : AppCompatActivity() {
                     errString: CharSequence
                 ) {
                     super.onAuthenticationError(errorCode, errString)
-                    moveTaskToBack(true)
-                    exitProcess(-1)
+                    Toast.makeText(applicationContext,
+                        "Authentication error: $errString", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 override fun onAuthenticationSucceeded(
