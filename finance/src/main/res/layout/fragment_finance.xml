@@ -44,7 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/white"
         android:contentDescription="@string/add_finance_detail"
         android:elevation="5dp"
         app:borderWidth="0dp"
