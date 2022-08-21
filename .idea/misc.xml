@@ -7,8 +7,11 @@
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/bottom_navigation_shadow.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/dialog_bg.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_add.xml" value="0.239" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_financial.xml" value="0.1945" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_home.xml" value="0.239" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.236" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_profile.xml" value="0.1945" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/ic_todo.xml" value="0.1945" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/drawable/shadow.xml" value="0.116" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/dialog_bg.xml" value="0.31302083333333336" />
@@ -23,9 +26,12 @@
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/fragment_todo.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/layout/insert_deadline.xml" value="0.3223958333333333" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/drawable/ic_food.xml" value="0.17" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/drawable/ic_money.xml" value="0.116" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/drawable/ic_transportation.xml" value="0.116" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/drawable/todo_card_bg.xml" value="0.24" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/deadline_card.xml" value="0.5" />
-        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_card.xml" value="0.31302083333333336" />
+        <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_card.xml" value="0.33" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_detail.xml" value="0.31302083333333336" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_detail_card.xml" value="0.33" />
         <entry key="..\:/Coding/Project/AndroidApp/Catetin/core/src/main/res/layout/finance_type.xml" value="0.3140625" />

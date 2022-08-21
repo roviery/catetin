@@ -162,7 +162,7 @@ class HomeFragment : Fragment() {
         }
 
         with(binding?.homeRvFinancial) {
-            this?.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            this?.layoutManager = LinearLayoutManager(context)
             this?.setHasFixedSize(true)
             this?.adapter = financeAdapter
         }

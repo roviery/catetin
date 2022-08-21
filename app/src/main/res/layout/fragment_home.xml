@@ -144,12 +144,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_rv_financial"
             android:layout_width="0dp"
-            android:layout_height="450dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="@id/home_ib_financial"
-            app:layout_constraintStart_toStartOf="@id/home_tv_financial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_tv_financial"
             tools:listitem="@layout/finance_card" />
 
