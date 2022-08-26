@@ -1,8 +1,8 @@
+com.roviery.catetin:layout/fragment_in_progress_view = 0x7d030001
+com.roviery.catetin:id/dialog_btn_save = 0x7d020000
 com.roviery.catetin:string/insert_to_do = 0x7d050006
 com.roviery.catetin:string/todo = 0x7d050008
 com.roviery.catetin:string/in_progress = 0x7d050005
-com.roviery.catetin:layout/fragment_in_progress_view = 0x7d030001
-com.roviery.catetin:id/dialog_btn_save = 0x7d020000
 com.roviery.catetin:id/todo_fb = 0x7d020008
 com.roviery.catetin:string/empty = 0x7d050003
 com.roviery.catetin:id/todo_delete = 0x7d020007
