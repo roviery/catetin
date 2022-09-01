@@ -9,12 +9,13 @@ import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.catetin.databinding.FragmentQuicknotesDialogBinding
 import com.roviery.catetin.home.HomeViewModel
 import com.roviery.core.domain.model.Quicknotes
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class QuicknotesDialogFragment : DialogFragment() {
+class QuicknotesDialogFragment : BottomSheetDialogFragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private var _binding: FragmentQuicknotesDialogBinding? = null
@@ -66,16 +67,5 @@ class QuicknotesDialogFragment : DialogFragment() {
 
             }
         }
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        return dialog
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 700)
     }
 }

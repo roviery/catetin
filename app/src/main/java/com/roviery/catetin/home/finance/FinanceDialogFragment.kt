@@ -33,6 +33,7 @@ class FinanceDialogFragment : BottomSheetDialogFragment() {
             val finance = FinanceDialogFragmentArgs.fromBundle(arguments as Bundle).finance
 
             if (finance != null) {
+                binding?.financeDialogTitle?.text = "Update Your Finance Model"
                 binding?.dialogEtType?.setText(finance.financeType)
                 binding?.dialogEtFundAllocation?.setText(finance.financeFundAllocation.toString())
             }
