@@ -48,40 +48,37 @@ class FinanceAdapter(private val context: Context) :
                 NumberFormat.getInstance(Locale.GERMAN).format(data.financeRemainingFund)
 
             with(binding) {
-                if (data.financeUsedFund > 0.8 * data.financeFundAllocation) {
-                    binding.tvTitle.setBackgroundResource(R.color.finance_red)
-                    binding.tvRemainingFund.setTextColor(
+                tvTitle.text = data.financeType
+
+                if (data.financeType.contains("Food", ignoreCase = true)) {
+                    iconCard.setCardBackgroundColor(
                         ContextCompat.getColor(
                             context,
                             R.color.finance_red
                         )
                     )
-                    binding.remainingFundNominal.setTextColor(
+                    iconImg.setImageResource(R.drawable.ic_food)
+                } else if (data.financeType.contains("Transport", ignoreCase = true)) {
+                    iconCard.setCardBackgroundColor(
                         ContextCompat.getColor(
                             context,
-                            R.color.finance_red
+                            R.color.finance_green
                         )
                     )
-                } else if (data.financeUsedFund > 0.5 * data.financeFundAllocation) {
-                    binding.tvTitle.setBackgroundResource(R.color.primary_orange)
-                    binding.tvRemainingFund.setTextColor(
+                    iconImg.setImageResource(R.drawable.ic_transportation)
+                } else {
+                    iconCard.setCardBackgroundColor(
                         ContextCompat.getColor(
                             context,
-                            R.color.primary_orange
+                            R.color.gray
                         )
                     )
-                    binding.remainingFundNominal.setTextColor(
-                        ContextCompat.getColor(
-                            context,
-                            R.color.primary_orange
-                        )
-                    )
+                    iconImg.setImageResource(R.drawable.ic_money)
                 }
 
-                tvTitle.text = data.financeType
-                fundAllocationNominal.text = "Rp$fundAllocation"
-                usedFundNominal.text = "Rp$usedFund"
-                remainingFundNominal.text = "Rp$remainingFund"
+                tvFundAllocation.text = "Rp$fundAllocation"
+                tvRemainingFund.text = "Remaining Rp$remainingFund"
+                tvUsedFund.text = "Used Rp$usedFund"
             }
 
         }

@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.DatePicker
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.catetin.databinding.FragmentDeadlineDialogBinding
 import com.roviery.catetin.home.HomeViewModel
 import com.roviery.core.domain.model.Deadline
@@ -18,7 +18,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnDateSetListener {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private var _binding: FragmentDeadlineDialogBinding? = null
@@ -89,17 +89,6 @@ class DeadlineDialogFragment : DialogFragment(), DatePickerDialog.OnDateSetListe
 
             }
         }
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        return dialog
-    }
-
-    override fun onStart() {
-        super.onStart()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, 850)
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {

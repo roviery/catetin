@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="270dp"
-    android:layout_height="145dp"
-    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="4dp"
     app:cardCornerRadius="10dp"
     app:cardElevation="2dp">
 
@@ -11,93 +12,79 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/icon_card"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/finance_green"
-            android:fontFamily="@font/poppins_semibold"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Food and Beverage"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/finance_red"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/icon_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_food"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_card"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Food and Beverage"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_remaining_fund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Remaining Rp200.000"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
             android:id="@+id/tv_fund_allocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Fund Allocation"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
-        <TextView
-            android:id="@+id/fund_allocation_nominal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Rp1.000.000"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_fund_allocation"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Rp1.300.000"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_fund_allocation" />
+            app:layout_constraintTop_toTopOf="@id/view1" />
 
         <TextView
             android:id="@+id/tv_used_fund"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Used Fund"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Used Rp1.100.000"
             android:textColor="@android:color/darker_gray"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_fund_allocation"
             app:layout_constraintTop_toBottomOf="@id/tv_fund_allocation" />
-
-        <TextView
-            android:id="@+id/used_fund_nominal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Rp200.000"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_used_fund"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_used_fund" />
-
-        <TextView
-            android:id="@+id/tv_remaining_fund"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Remaining Fund"
-            android:textColor="@color/finance_green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_used_fund" />
-
-        <TextView
-            android:id="@+id/remaining_fund_nominal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Rp800.000"
-            android:textColor="@color/finance_green"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_remaining_fund"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_remaining_fund" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

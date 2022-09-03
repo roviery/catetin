@@ -19,16 +19,16 @@
 
     <TextView
         android:id="@+id/fd_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
-        android:lines="1"
-        android:text="Nasi Ayam"
+        android:text="Nasi Ayam bumbu riciii"
         android:textColor="@color/black"
         android:textSize="14sp"
+        android:paddingHorizontal="8dp"
         app:layout_constraintStart_toEndOf="@id/fd_date"
+        app:layout_constraintEnd_toStartOf="@id/fd_expense"
         app:layout_constraintTop_toTopOf="@id/fd_date" />
 
     <TextView

@@ -8,9 +8,10 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/todo_tabs"
-        style="@style/TabLayoutAppearance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/primary_orange"
+        app:tabSelectedTextColor="@color/primary_orange"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -44,7 +45,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/white"
         android:contentDescription="@string/add_to_do"
         android:elevation="5dp"
         app:borderWidth="0dp"
