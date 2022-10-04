@@ -40,6 +40,9 @@ interface CatetinDao {
     @Query("SELECT * FROM Finance")
     fun getAllFinance(): Flow<List<FinanceEntity>>
 
+    @Query("SELECT SUM(FRemainingFund) FROM Finance")
+    fun getFinanceBudget(): Flow<Int>
+
     @Query("SELECT FType FROM Finance ORDER BY FType ASC")
     fun getAllFinanceType(): Flow<List<String>>
 

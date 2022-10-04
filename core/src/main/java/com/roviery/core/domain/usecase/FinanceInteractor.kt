@@ -7,14 +7,28 @@ import kotlinx.coroutines.flow.Flow
 class FinanceInteractor(private val financeRepository: IFinanceRepository) : FinanceUseCase {
     override fun getAllFinance(): Flow<List<Finance>> = financeRepository.getAllFinance()
 
+    override fun getFinanceBudget(): Flow<Int> = financeRepository.getFinanceBudget()
+
     override fun getAllFinanceType(): Flow<List<String>> = financeRepository.getAllFinanceType()
 
     override fun getFinanceByType(type: String): Finance = financeRepository.getFinanceByType(type)
 
     override fun insertFinance(finance: Finance) = financeRepository.insertFinance(finance)
 
-    override fun updateFinance(finance: Finance, newType: String, newFundAllocation: Int, newUsedFund: Int, newRemainingFund: Int) =
-        financeRepository.updateFinance(finance, newType, newFundAllocation, newUsedFund, newRemainingFund)
+    override fun updateFinance(
+        finance: Finance,
+        newType: String,
+        newFundAllocation: Int,
+        newUsedFund: Int,
+        newRemainingFund: Int
+    ) =
+        financeRepository.updateFinance(
+            finance,
+            newType,
+            newFundAllocation,
+            newUsedFund,
+            newRemainingFund
+        )
 
     override fun deleteFinance(finance: Finance) = financeRepository.deleteFinance(finance)
 }

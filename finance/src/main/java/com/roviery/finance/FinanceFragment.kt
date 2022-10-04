@@ -17,6 +17,8 @@ import com.roviery.finance.databinding.FragmentFinanceBinding
 import com.roviery.finance.di.financeModule
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
+import java.text.NumberFormat
+import java.util.*
 
 class FinanceFragment : Fragment() {
 
@@ -68,6 +70,7 @@ class FinanceFragment : Fragment() {
                 findNavController().navigate(toFinanceDetailDialog)
             }
 
+            loadMonthlyBudget()
             loadFinanceType()
             loadFinanceDetail()
         }
@@ -110,6 +113,20 @@ class FinanceFragment : Fragment() {
         }
         val touchHelper = ItemTouchHelper(swipeGesture)
         touchHelper.attachToRecyclerView(binding?.financeDetailRv)
+    }
+
+    private fun loadMonthlyBudget() {
+        financeViewModel.getFinanceBudget().observe(viewLifecycleOwner){ data ->
+            Log.d("Budget", data.toString())
+            if (data != null){
+                val budget = NumberFormat.getInstance(Locale.GERMAN).format(data)
+                binding?.tvBudgetRemaining?.text = "Rp$budget"
+            }
+            else{
+                binding?.tvBudgetRemaining?.text = "-"
+                binding?.tvTotalBudget?.text = "/-"
+            }
+        }
     }
 
     private fun loadFinanceType() {

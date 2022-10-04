@@ -7,6 +7,8 @@ interface FinanceUseCase {
 
     fun getAllFinance(): Flow<List<Finance>>
 
+    fun getFinanceBudget(): Flow<Int>
+
     fun getAllFinanceType(): Flow<List<String>>
 
     fun getFinanceByType(type: String): Finance

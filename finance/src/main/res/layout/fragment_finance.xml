@@ -29,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_monthly_budget" />
 
     <TextView
+        android:id="@+id/tv_total_budget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

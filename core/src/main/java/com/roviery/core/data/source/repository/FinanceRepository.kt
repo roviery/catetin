@@ -18,6 +18,9 @@ class FinanceRepository(
             DataMapperFinance.mapEntitiesToDomain(it)
         }
 
+    override fun getFinanceBudget(): Flow<Int> =
+        localDataSource.getFinanceBudget()
+
     override fun getAllFinanceType(): Flow<List<String>> =
         localDataSource.getAllFinanceType()
 
