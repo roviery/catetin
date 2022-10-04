@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="add_finance_detail">Add Finance Detail</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="name">Name</string>
     <string name="expense">Expense</string>
+    <string name="monthly_budget">Monthly Budget</string>
+    <string name="total_budget">/ 2.000.000</string>
+    <string name="remaining_budget">Rp1.258.000</string>
 </resources>
