@@ -2,8 +2,10 @@
 <resources>
     <color name="primary_orange">#EFA331</color>
     <color name="finance_green">#00AF27</color>
+    <color name="finance_yellow">#ffd500</color>
     <color name="finance_red">#FF0000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#5F5F5F</color>
 </resources>
+<!--    ffd500-->

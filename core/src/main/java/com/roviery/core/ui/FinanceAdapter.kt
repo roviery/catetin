@@ -66,6 +66,14 @@ class FinanceAdapter(private val context: Context) :
                         )
                     )
                     iconImg.setImageResource(R.drawable.ic_transportation)
+                } else if (data.financeType.contains("Electric", ignoreCase = true)) {
+                    iconCard.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.finance_yellow
+                        )
+                    )
+                    iconImg.setImageResource(R.drawable.ic_electricity)
                 } else {
                     iconCard.setCardBackgroundColor(
                         ContextCompat.getColor(
