@@ -18,6 +18,7 @@ val databaseModule = module {
             "Catetin.db"
         ).fallbackToDestructiveMigration()
             .allowMainThreadQueries() // -> for type financial detail input
+            .createFromAsset("database/finance.db")
             .build()
     }
 }
