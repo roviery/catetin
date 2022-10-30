@@ -14,6 +14,8 @@ class FinanceViewModel(
 
     val listFinanceType = financeUseCase.getAllFinanceType().asLiveData()
 
+    fun getFinanceAllocation() = financeUseCase.getFinanceAllocation().asLiveData()
+
     fun getFinanceBudget() = financeUseCase.getFinanceBudget().asLiveData()
 
     fun getFinanceByType(type: String) = financeUseCase.getFinanceByType(type)

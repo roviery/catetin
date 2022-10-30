@@ -37,6 +37,8 @@ class LocalDataSource(private val catetinDao: CatetinDao) {
 
     fun getAllFinance(): Flow<List<FinanceEntity>> = catetinDao.getAllFinance()
 
+    fun getFinanceAllocation(): Flow<Int> = catetinDao.getFinanceAllocation()
+
     fun getFinanceBudget(): Flow<Int> = catetinDao.getFinanceBudget()
 
     fun getAllFinanceType(): Flow<List<String>> = catetinDao.getAllFinanceType()

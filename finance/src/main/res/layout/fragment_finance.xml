@@ -13,7 +13,8 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/monthly_budget"
-        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +25,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/remaining_budget"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@id/tv_monthly_budget"
         app:layout_constraintTop_toBottomOf="@id/tv_monthly_budget" />
@@ -35,9 +37,10 @@
         android:layout_marginStart="16dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/total_budget"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@id/tv_budget_remaining"
         app:layout_constraintStart_toEndOf="@id/tv_budget_remaining"
-        app:layout_constraintTop_toTopOf="@id/tv_budget_remaining"/>
+        app:layout_constraintTop_toTopOf="@id/tv_budget_remaining" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/finance_type_rv"

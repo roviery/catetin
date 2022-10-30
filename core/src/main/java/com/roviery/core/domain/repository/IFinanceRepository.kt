@@ -7,6 +7,8 @@ interface IFinanceRepository {
 
     fun getAllFinance(): Flow<List<Finance>>
 
+    fun getFinanceAllocation(): Flow<Int>
+
     fun getFinanceBudget(): Flow<Int>
 
     fun getAllFinanceType(): Flow<List<String>>

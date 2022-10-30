@@ -70,7 +70,8 @@ class FinanceFragment : Fragment() {
                 findNavController().navigate(toFinanceDetailDialog)
             }
 
-            loadMonthlyBudget()
+            loadFinanceBudget()
+            loadFinanceAllocation()
             loadFinanceType()
             loadFinanceDetail()
         }
@@ -115,15 +116,25 @@ class FinanceFragment : Fragment() {
         touchHelper.attachToRecyclerView(binding?.financeDetailRv)
     }
 
-    private fun loadMonthlyBudget() {
-        financeViewModel.getFinanceBudget().observe(viewLifecycleOwner){ data ->
+    private fun loadFinanceBudget() {
+        financeViewModel.getFinanceBudget().observe(viewLifecycleOwner) { data ->
             Log.d("Budget", data.toString())
-            if (data != null){
+            if (data != null) {
                 val budget = NumberFormat.getInstance(Locale.GERMAN).format(data)
                 binding?.tvBudgetRemaining?.text = "Rp$budget"
-            }
-            else{
+            } else {
                 binding?.tvBudgetRemaining?.text = "-"
+            }
+        }
+    }
+
+    private fun loadFinanceAllocation() {
+        financeViewModel.getFinanceAllocation().observe(viewLifecycleOwner) { data ->
+            Log.d("Allocation", data.toString())
+            if (data != null) {
+                val allocation = NumberFormat.getInstance(Locale.GERMAN).format(data)
+                binding?.tvTotalBudget?.text = "/$allocation"
+            } else {
                 binding?.tvTotalBudget?.text = "/-"
             }
         }
