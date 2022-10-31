@@ -21,6 +21,8 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun getData(position: Int): Todo = listData[position]
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder =
         TodoViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.todo_card, parent, false)
@@ -33,8 +35,10 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     override fun getItemCount(): Int = listData.size
 
-    inner class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class TodoViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
         private val binding = TodoCardBinding.bind(itemView)
+
         fun bind(data: Todo) {
             with(binding) {
                 tvTodo.text = data.todoMessage

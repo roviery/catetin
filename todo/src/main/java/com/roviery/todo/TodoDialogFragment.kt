@@ -34,18 +34,19 @@ class TodoDialogFragment : BottomSheetDialogFragment() {
             val todo = TodoDialogFragmentArgs.fromBundle(arguments as Bundle).todo
 
             if (todo != null) {
+                binding?.dialogTvTitle?.text = "Update To Do"
                 binding?.todoDelete?.visibility = View.VISIBLE
                 binding?.dialogEtTodo?.setText(todo.todoMessage)
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
-                val status = "todo"
+                val status = "To Do"
                 val message = binding?.dialogEtTodo?.text.toString()
 
                 if (todo != null) {
                     todoViewModel.updateTodo(todo, todo.todoStatus, message)
                 } else {
-                    var newTodo = Todo(
+                    val newTodo = Todo(
                         0,
                         status,
                         message
@@ -53,7 +54,6 @@ class TodoDialogFragment : BottomSheetDialogFragment() {
                     Log.d("Insert todoMessage", message)
                     todoViewModel.insertTodo(newTodo)
                 }
-
 
                 findNavController().navigateUp()
             }

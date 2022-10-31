@@ -4,7 +4,7 @@ drawable ic_delete
 id dialog_btn_save
 id dialog_et_todo
 id dialog_ti_todo
-id dialog_tv_insert
+id dialog_tv_title
 id done_rv
 id empty_todo
 id inprogress_rv

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.roviery.core.ui.TodoAdapter
 import com.roviery.todo.TodoFragmentDirections
 import com.roviery.todo.TodoViewModel
@@ -62,7 +62,7 @@ class DoneViewFragment : Fragment() {
         }
 
         with(binding?.doneRv) {
-            this?.layoutManager = GridLayoutManager(requireContext(), 2)
+            this?.layoutManager = LinearLayoutManager(requireContext())
             this?.setHasFixedSize(true)
             this?.adapter = doneAdapter
         }

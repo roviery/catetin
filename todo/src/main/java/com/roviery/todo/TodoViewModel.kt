@@ -9,9 +9,9 @@ class TodoViewModel(
     private val todoUseCase: TodoUseCase
 ) : ViewModel() {
 
-    val todoList = todoUseCase.getAllTodo("todo").asLiveData()
-    val inProgressList = todoUseCase.getAllTodo("in progress").asLiveData()
-    val doneList = todoUseCase.getAllTodo("done").asLiveData()
+    val todoList = todoUseCase.getAllTodo("To Do").asLiveData()
+    val inProgressList = todoUseCase.getAllTodo("In Progress").asLiveData()
+    val doneList = todoUseCase.getAllTodo("Done").asLiveData()
 
     fun insertTodo(todo: Todo) = todoUseCase.insertTodo(todo)
 

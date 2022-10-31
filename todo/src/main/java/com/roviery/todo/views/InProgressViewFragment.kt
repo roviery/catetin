@@ -2,18 +2,19 @@ package com.roviery.todo.views
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.roviery.core.ui.TodoAdapter
-import com.roviery.todo.R
+import com.roviery.core.utils.SwipeGesture
 import com.roviery.todo.TodoFragmentDirections
 import com.roviery.todo.TodoViewModel
 import com.roviery.todo.databinding.FragmentInProgressViewBinding
-import com.roviery.todo.databinding.FragmentTodoViewBinding
 import com.roviery.todo.di.todoModule
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
@@ -42,7 +43,7 @@ class InProgressViewFragment : Fragment() {
             inProgressAdapter = TodoAdapter()
 
             inProgressAdapter.onItemLongClick = {
-                todoViewModel.updateTodo(it, "done", it.todoMessage)
+                todoViewModel.updateTodo(it, "Done", it.todoMessage)
                 Log.d("After Update", it.todoStatus)
             }
 
@@ -51,6 +52,29 @@ class InProgressViewFragment : Fragment() {
                     TodoFragmentDirections.actionTodoFragmentToTodoDialogFragment(it)
                 findNavController().navigate(toTodoDialog)
             }
+
+            val swipeGesture = object : SwipeGesture(requireActivity()) {
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    when (direction) {
+                        ItemTouchHelper.LEFT -> {
+                            todoViewModel.updateTodo(
+                                inProgressAdapter.getData(viewHolder.adapterPosition),
+                                "Done",
+                                inProgressAdapter.getData(viewHolder.adapterPosition).todoMessage
+                            )
+                        }
+                        ItemTouchHelper.RIGHT -> {
+                            todoViewModel.updateTodo(
+                                inProgressAdapter.getData(viewHolder.adapterPosition),
+                                "Done",
+                                inProgressAdapter.getData(viewHolder.adapterPosition).todoMessage
+                            )
+                        }
+                    }
+                }
+            }
+            val touchHelper = ItemTouchHelper(swipeGesture)
+            touchHelper.attachToRecyclerView(binding?.inprogressRv)
 
             loadInProgress()
         }
@@ -64,7 +88,7 @@ class InProgressViewFragment : Fragment() {
         }
 
         with(binding?.inprogressRv) {
-            this?.layoutManager = GridLayoutManager(requireContext(), 2)
+            this?.layoutManager = LinearLayoutManager(requireContext())
             this?.setHasFixedSize(true)
             this?.adapter = inProgressAdapter
         }

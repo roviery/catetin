@@ -6,7 +6,7 @@
     android:paddingBottom="60dp">
 
     <TextView
-        android:id="@+id/dialog_tv_insert"
+        android:id="@+id/dialog_tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -26,9 +26,9 @@
         android:contentDescription="@string/delete_todo"
         android:src="@drawable/ic_delete"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/dialog_tv_insert"
-        app:layout_constraintEnd_toEndOf="@id/dialog_tv_insert"
-        app:layout_constraintTop_toTopOf="@id/dialog_tv_insert" />
+        app:layout_constraintBottom_toBottomOf="@id/dialog_tv_title"
+        app:layout_constraintEnd_toEndOf="@id/dialog_tv_title"
+        app:layout_constraintTop_toTopOf="@id/dialog_tv_title" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/dialog_ti_todo"
@@ -41,9 +41,9 @@
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
-        app:layout_constraintEnd_toEndOf="@id/dialog_tv_insert"
-        app:layout_constraintStart_toStartOf="@id/dialog_tv_insert"
-        app:layout_constraintTop_toBottomOf="@id/dialog_tv_insert">
+        app:layout_constraintEnd_toEndOf="@id/dialog_tv_title"
+        app:layout_constraintStart_toStartOf="@id/dialog_tv_title"
+        app:layout_constraintTop_toBottomOf="@id/dialog_tv_title">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/dialog_et_todo"
