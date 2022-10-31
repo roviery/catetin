@@ -9,7 +9,7 @@ import com.roviery.core.R
 import com.roviery.core.databinding.FinanceTypeBinding
 import com.roviery.core.ui.FinanceTypeAdapter.FinanceTypeViewHolder
 
-class FinanceTypeAdapter() : RecyclerView.Adapter<FinanceTypeViewHolder>() {
+class FinanceTypeAdapter : RecyclerView.Adapter<FinanceTypeViewHolder>() {
 
     private var listData = ArrayList<String>()
     var onItemClick: ((String) -> Unit)? = null

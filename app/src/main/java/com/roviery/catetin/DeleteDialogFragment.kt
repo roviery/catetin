@@ -10,7 +10,7 @@ import com.roviery.catetin.databinding.FragmentDeleteDialogBinding
 import com.roviery.catetin.home.HomeViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class DeleteDialogFragment() : DialogFragment() {
+class DeleteDialogFragment : DialogFragment() {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private var _binding: FragmentDeleteDialogBinding? = null

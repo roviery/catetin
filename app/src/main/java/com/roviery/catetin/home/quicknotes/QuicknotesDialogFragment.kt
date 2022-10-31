@@ -1,13 +1,10 @@
 package com.roviery.catetin.home.quicknotes
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.catetin.databinding.FragmentQuicknotesDialogBinding

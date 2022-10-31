@@ -2,13 +2,12 @@ package com.roviery.core.utils
 
 import android.content.Context
 import android.graphics.Canvas
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.roviery.core.R
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
-abstract class SwipeGesture(context: Context): ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+abstract class SwipeGesture(context: Context) :
+    ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
 
     override fun onMove(
         recyclerView: RecyclerView,
@@ -28,7 +27,15 @@ abstract class SwipeGesture(context: Context): ItemTouchHelper.SimpleCallback(0,
         isCurrentlyActive: Boolean
     ) {
 
-        RecyclerViewSwipeDecorator.Builder(c,recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+        RecyclerViewSwipeDecorator.Builder(
+            c,
+            recyclerView,
+            viewHolder,
+            dX,
+            dY,
+            actionState,
+            isCurrentlyActive
+        )
             .create()
             .decorate()
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)

@@ -27,8 +27,9 @@
                 android:id="@+id/icon_img"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:contentDescription="finance icon"
                 android:padding="8dp"
-                app:srcCompat="@drawable/ic_food"/>
+                app:srcCompat="@drawable/ic_food" />
 
         </androidx.cardview.widget.CardView>
 
@@ -67,11 +68,11 @@
             android:id="@+id/tv_fund_allocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Rp1.300.000"
             android:textColor="@color/black"
             android:textSize="14sp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/view1" />
 
