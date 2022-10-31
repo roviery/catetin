@@ -44,6 +44,7 @@ class FinanceDetailDialogFragment : BottomSheetDialogFragment() {
 
 
             if (financeDetail != null) {
+                binding?.dialogAutocompleteTv?.setText(financeDetail.financeDetailType)
                 binding?.dialogEtName?.setText(financeDetail.financeDetailName)
                 binding?.dialogEtExpense?.setText(financeDetail.financeDetailExpense.toString())
             }
