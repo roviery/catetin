@@ -1,7 +1,6 @@
 package com.roviery.todo.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +55,6 @@ class DoneViewFragment : Fragment() {
 
     private fun loadDone() {
         todoViewModel.doneList.observe(viewLifecycleOwner) { done ->
-            Log.d("Todo List", done.toString())
             binding?.emptyTodo?.visibility = if (done.isEmpty()) View.VISIBLE else View.GONE
             doneAdapter.setData(done)
         }

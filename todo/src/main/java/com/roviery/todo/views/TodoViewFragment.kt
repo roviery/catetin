@@ -1,7 +1,6 @@
 package com.roviery.todo.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +44,6 @@ class TodoViewFragment : Fragment() {
 
             todoAdapter.onItemLongClick = {
                 todoViewModel.updateTodo(it, "In Progress", it.todoMessage)
-                Log.d("After Update", it.todoStatus)
             }
 
             todoAdapter.onItemClick = {
@@ -83,7 +81,6 @@ class TodoViewFragment : Fragment() {
 
     private fun loadTodo() {
         todoViewModel.todoList.observe(viewLifecycleOwner) { todo ->
-            Log.d("Todo List", todo.toString())
             binding?.emptyTodo?.visibility = if (todo.isEmpty()) View.VISIBLE else View.GONE
             todoAdapter.setData(todo)
         }
