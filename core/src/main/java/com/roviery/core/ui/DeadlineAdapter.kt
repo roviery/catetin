@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.roviery.core.R
 import com.roviery.core.databinding.DeadlineCardBinding
 import com.roviery.core.domain.model.Deadline
+import com.roviery.core.utils.DateConverter
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DeadlineAdapter : RecyclerView.Adapter<DeadlineAdapter.DeadlineViewHolder>() {
 
@@ -38,7 +41,18 @@ class DeadlineAdapter : RecyclerView.Adapter<DeadlineAdapter.DeadlineViewHolder>
         private val binding = DeadlineCardBinding.bind(itemView)
         fun bind(data: Deadline) {
             with(binding) {
-                tvDeadlineDate.text = data.deadlineDate
+                val dateSplit = data.deadlineDate.split("-")
+
+                val simpleDateFormat = SimpleDateFormat("EEEE")
+                val date =
+                    Date(dateSplit[2].toInt(), dateSplit[0].toInt(), dateSplit[1].toInt() - 1)
+                val savedDay = simpleDateFormat.format(date)
+                val savedDayOfMonth = dateSplit[1].toInt()
+                val savedMonthString = DateConverter.stringMonth(dateSplit[0].toInt())
+                val savedYear = dateSplit[2].toInt()
+
+                val datePreview = "$savedDay, $savedDayOfMonth $savedMonthString $savedYear"
+                tvDeadlineDate.text = datePreview
                 tvDeadlineNotes.text = data.deadlineNotes
             }
         }
