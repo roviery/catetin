@@ -9,7 +9,7 @@ interface CatetinDao {
 
     // Deadline
 
-    @Query("SELECT * FROM Deadline ORDER BY deadlineDate")
+    @Query("SELECT * FROM Deadline ORDER BY deadlineDate ASC")
     fun getAllDeadline(): Flow<List<DeadlineEntity>>
 
     @Insert

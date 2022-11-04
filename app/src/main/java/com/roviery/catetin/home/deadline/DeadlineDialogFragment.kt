@@ -2,6 +2,7 @@ package com.roviery.catetin.home.deadline
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.roviery.catetin.databinding.FragmentDeadlineDialogBinding
 import com.roviery.catetin.home.HomeViewModel
 import com.roviery.core.domain.model.Deadline
+import com.roviery.core.utils.DateConverter.stringMonth
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,12 +27,12 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
     private var dayOfMonth = 0
     private var month = 0
     private var year = 0
-    private var savedDay = "Senin"
-    private var savedDayOfMonth = 0
-    private var savedMonthString = "Senin"
-    private var savedMonth = 0
-    private var savedYear = 0
 
+    private var savedDay = "Monday"             // "Monday", "Tuesday", "Wednesday" ...
+    private var savedDayOfMonth = "0"           // 1-28 / 1-29 / 1-30 / 1-31
+    private var savedMonthString = "January"    // "January", "February", "March" ...
+    private var savedMonth = "0"                  // 0 - 11
+    private var savedYear = 0                   // "2020", "2021", "2022" ...
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,20 +48,52 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
             val deadline = DeadlineDialogFragmentArgs.fromBundle(arguments as Bundle).deadline
 
             if (deadline != null) {
-                binding?.dialogTvDate?.text = deadline.deadlineDate
-                binding?.dialogEtKeterangan?.setText(deadline.deadlineNotes)
-            }
+                val dateSplit: List<String> = deadline.deadlineDate.split("-")
 
-            getDateCalendar()
-            binding?.dialogTvDate?.text = "$savedDay, $savedDayOfMonth $savedMonthString $savedYear"
+                val simpleDateFormat = SimpleDateFormat("EEEE")
+                val date =
+                    Date(dateSplit[2].toInt(), dateSplit[0].toInt(), dateSplit[1].toInt() - 1)
+                savedDay = simpleDateFormat.format(date)
+                savedDayOfMonth =
+                    if (dateSplit[1].toInt() < 10) "0${dateSplit[1].toInt()}" else dateSplit[1]
+                savedMonth =
+                    if (dateSplit[0].toInt() < 10) "0${dateSplit[0].toInt()}" else dateSplit[0]
+                savedMonthString = stringMonth(dateSplit[0].toInt())
+                savedYear = dateSplit[2].toInt()
+
+                val datePreview =
+                    "$savedDay, ${savedDayOfMonth.toInt()} $savedMonthString $savedYear"
+                binding?.dialogTvDate?.text = datePreview
+                binding?.dialogEtKeterangan?.setText(deadline.deadlineNotes)
+            } else {
+                getDateCalendar()
+                binding?.dialogTvDate?.text =
+                    "$savedDay, ${savedDayOfMonth.toInt()} $savedMonthString $savedYear"
+            }
 
             binding?.dialogIbCloseDeadline?.setOnClickListener {
                 findNavController().navigateUp()
             }
 
             binding?.dialogBtnDate?.setOnClickListener {
-                getDateCalendar()
-                DatePickerDialog(requireContext(), this, year, month, dayOfMonth).show()
+                if (deadline != null) {
+                    DatePickerDialog(
+                        requireContext(),
+                        this,
+                        savedYear,
+                        savedMonth.toInt(),
+                        savedDayOfMonth.toInt()
+                    ).show()
+                } else {
+                    getDateCalendar()
+                    DatePickerDialog(
+                        requireContext(),
+                        this,
+                        year,
+                        month,
+                        dayOfMonth
+                    ).show()
+                }
             }
 
             binding?.dialogBtnSave?.setOnClickListener {
@@ -68,14 +102,14 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
                 if (notes.isNotEmpty()) {
                     if (deadline != null) {
                         homeViewModel.updateDeadline(
-                            deadline, binding?.dialogTvDate?.text.toString(),
+                            deadline, "$savedMonth-$savedDayOfMonth-$savedYear",
                             binding?.dialogEtKeterangan?.text.toString()
                         )
                         dialog?.dismiss()
                     } else {
                         val newDeadline = Deadline(
                             0,
-                            binding?.dialogTvDate?.text.toString(),
+                            "$savedMonth-$savedDayOfMonth-$savedYear",
                             binding?.dialogEtKeterangan?.text.toString()
                         )
                         homeViewModel.insertDeadline(newDeadline)
@@ -84,7 +118,6 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
                 } else {
                     Toast.makeText(requireContext(), "Invalid Data", Toast.LENGTH_SHORT).show()
                 }
-
             }
         }
     }
@@ -94,26 +127,13 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
         val date = Date(year, month, dayOfMonth - 1)
 
         savedDay = simpleDateFormat.format(date)
-        savedDayOfMonth = dayOfMonth
-        savedMonth = month
+        savedDayOfMonth = if (dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
+        savedMonth = if (month < 10) "0$month" else "$month"
+        savedMonthString = stringMonth(month)
         savedYear = year
 
-        when (savedMonth) {
-            0 -> savedMonthString = "January"
-            1 -> savedMonthString = "February"
-            2 -> savedMonthString = "March"
-            3 -> savedMonthString = "April"
-            4 -> savedMonthString = "May"
-            5 -> savedMonthString = "June"
-            6 -> savedMonthString = "July"
-            7 -> savedMonthString = "August"
-            8 -> savedMonthString = "September"
-            9 -> savedMonthString = "October"
-            10 -> savedMonthString = "November"
-            11 -> savedMonthString = "December"
-        }
-
-        binding?.dialogTvDate?.text = "$savedDay, $savedDayOfMonth $savedMonthString $savedYear"
+        binding?.dialogTvDate?.text =
+            "$savedDay, ${savedDayOfMonth.toInt()} $savedMonthString $savedYear"
     }
 
     private fun getDateCalendar() {
@@ -125,24 +145,11 @@ class DeadlineDialogFragment : BottomSheetDialogFragment(), DatePickerDialog.OnD
         val simpleDateFormat = SimpleDateFormat("EEEE")
         val date = Date(year, month, dayOfMonth - 1)
         savedDay = simpleDateFormat.format(date)
-        savedDayOfMonth = dayOfMonth
-        savedMonth = month
+        savedDayOfMonth = if (dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
+        savedMonth = if (month < 10) "0$month" else "$month"
+        savedMonthString = stringMonth(month)
         savedYear = year
-
-        when (savedMonth) {
-            0 -> savedMonthString = "January"
-            1 -> savedMonthString = "February"
-            2 -> savedMonthString = "March"
-            3 -> savedMonthString = "April"
-            4 -> savedMonthString = "May"
-            5 -> savedMonthString = "June"
-            6 -> savedMonthString = "July"
-            7 -> savedMonthString = "August"
-            8 -> savedMonthString = "September"
-            9 -> savedMonthString = "October"
-            10 -> savedMonthString = "November"
-            11 -> savedMonthString = "December"
-        }
     }
+
 
 }

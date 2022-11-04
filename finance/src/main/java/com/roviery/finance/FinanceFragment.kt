@@ -1,7 +1,6 @@
 package com.roviery.finance
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +55,6 @@ class FinanceFragment : Fragment() {
                     filter.remove(it)
                 else
                     filter.add(it)
-                Log.d("Filter", filter.toString())
                 loadFinanceDetail()
             }
 
@@ -118,7 +116,6 @@ class FinanceFragment : Fragment() {
 
     private fun loadFinanceBudget() {
         financeViewModel.getFinanceBudget().observe(viewLifecycleOwner) { data ->
-            Log.d("Budget", data.toString())
             if (data != null) {
                 val budget = NumberFormat.getInstance(Locale.GERMAN).format(data)
                 binding?.tvBudgetRemaining?.text = "Rp$budget"
@@ -130,7 +127,6 @@ class FinanceFragment : Fragment() {
 
     private fun loadFinanceAllocation() {
         financeViewModel.getFinanceAllocation().observe(viewLifecycleOwner) { data ->
-            Log.d("Allocation", data.toString())
             if (data != null) {
                 val allocation = NumberFormat.getInstance(Locale.GERMAN).format(data)
                 binding?.tvTotalBudget?.text = "/$allocation"
@@ -142,7 +138,6 @@ class FinanceFragment : Fragment() {
 
     private fun loadFinanceType() {
         financeViewModel.listFinanceType.observe(viewLifecycleOwner) { financeType ->
-            Log.d("Finance Type", financeType.toString())
             financeTypeAdapter.setData(financeType)
             with(binding?.financeTypeRv) {
                 this?.layoutManager =
@@ -156,7 +151,6 @@ class FinanceFragment : Fragment() {
     private fun loadFinanceDetail() {
         financeViewModel.getFinanceDetailByType(filter)
             .observe(viewLifecycleOwner) { financeDetail ->
-                Log.d("Finance Detail List", financeDetail.toString())
                 binding?.noDataPreview?.visibility =
                     if (financeDetail.isEmpty()) View.VISIBLE else View.GONE
                 financeDetailAdapter.setData(financeDetail)

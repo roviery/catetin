@@ -1,7 +1,6 @@
 package com.roviery.catetin.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -113,7 +112,6 @@ class HomeFragment : Fragment() {
 
     private fun loadDeadline() {
         homeViewModel.listDeadline.observe(viewLifecycleOwner) { deadline ->
-            Log.d("Deadline List", deadline.toString())
             if (deadline.isEmpty()) {
                 binding?.homeTvEmptyDeadline?.visibility = View.VISIBLE
                 deadlineAdapter.setData(deadline)
@@ -132,7 +130,6 @@ class HomeFragment : Fragment() {
 
     private fun loadQuicknotes() {
         homeViewModel.listQuicknotes.observe(viewLifecycleOwner) { quicknotes ->
-            Log.d("Quicknotes List", quicknotes.toString())
             if (quicknotes.isEmpty()) {
                 binding?.homeTvEmptyQuicknotes?.visibility = View.VISIBLE
                 quicknotesAdapter.setData(quicknotes)
@@ -151,7 +148,6 @@ class HomeFragment : Fragment() {
 
     private fun loadFinance() {
         homeViewModel.listFinance.observe(viewLifecycleOwner) { finance ->
-            Log.d("Finance List", finance.toString())
             if (finance.isEmpty()) {
                 binding?.homeTvEmptyFinancial?.visibility = View.VISIBLE
                 financeAdapter.setData(finance)

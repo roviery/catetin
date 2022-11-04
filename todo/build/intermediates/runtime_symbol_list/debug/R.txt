@@ -2,7 +2,7 @@ int drawable ic_delete 0x7d010000
 int id dialog_btn_save 0x7d020000
 int id dialog_et_todo 0x7d020001
 int id dialog_ti_todo 0x7d020002
-int id dialog_tv_title 0x7d02000c
+int id dialog_tv_title 0x7d020003
 int id done_rv 0x7d020004
 int id empty_todo 0x7d020005
 int id inprogress_rv 0x7d020006
