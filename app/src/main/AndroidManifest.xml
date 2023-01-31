@@ -4,6 +4,7 @@
     package="com.roviery.catetin">
 
     <application
+        android:name=".CatetinApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,7 +15,7 @@
         android:theme="@style/Theme.Catetin"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".feature_user.presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Catetin">
